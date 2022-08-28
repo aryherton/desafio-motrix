@@ -34,7 +34,7 @@ export default class MessageCtrll {
         console.log(e);
         return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
     }
-  }
+  };
 
   async getMessageCtrll(req: Request, res: Response) {
     try {
@@ -43,14 +43,59 @@ export default class MessageCtrll {
       if (authorization) {
         const user = Token.validToken(authorization) as JwtPayload;
         const messageServ = new MessageServ();
-        const arrMessage = await messageServ.getMessage(user.email);
+        const userMessage = await messageServ.getMessage(user.email);
 
-        return res.status(StatusHttp.OK).json({ arrMessage });
+        return res.status(StatusHttp.OK).json(userMessage);
       }
 
       return res.status(StatusHttp.OK).json({ message: Messages.NOT_TOKEN });
     } catch(e) {
       console.log(e);
     }
-  }
+  };
+
+  async updateMessageCtrll(req: Request, res: Response) {
+    try {
+      const { authorization } = req.headers;
+      const message: IMessage = req.body;
+
+      if (authorization) {
+        const user = Token.validToken(authorization) as JwtPayload;
+        const messageServ = new MessageServ();
+        const buildArrMess = new BuildArrMessagens();
+        const arrMessage: IMessage[] = await buildArrMess
+          .updateMessageArr(user.email, message) as IMessage[];
+
+        await messageServ.updateMessage(user.email, arrMessage);
+
+        return res.status(StatusHttp.OK).json({ message: Messages.UPDATE_SUCCESS });
+      }
+
+      return res.status(StatusHttp.NO_CONTENT).json({ message: Messages.NOT_TOKEN });
+    } catch(e) {
+      console.log(e);
+      return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
+    }
+  };
+
+  async deleteMessageCtrll(req: Request, res: Response) {
+    try {
+      const { authorization } = req.headers;
+      const arrMessDel = req.body;
+
+      if (authorization) {
+        const user = Token.validToken(authorization) as JwtPayload;
+        const messageServ = new MessageServ();
+        await messageServ
+          .deleteMessage(user.email, arrMessDel);
+
+        return res.status(StatusHttp.OK).json({ message: Messages.DELETE_SUCCESS });
+      }
+
+      return res.status(StatusHttp.NO_CONTENT).json({ message: Messages.NOT_TOKEN });
+    } catch(e) {
+      console.log(e);
+      return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
+    }
+  };
 }
