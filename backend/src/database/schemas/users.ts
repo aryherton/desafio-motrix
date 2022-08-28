@@ -19,18 +19,18 @@ export default new Schema<IUser>(
           created: { type: Date, default: Date.now },
           // updated: { type: Date, default: Date.now },
         },
+        historyUpdate: [
+          {
+            title: String,
+            description: String,
+            status: String,
+            priority: Number,
+            timestamp: {
+              // created: { type: Date, default: Date.now },
+              updated: { type: Date, default: Date.now },
+            },
+          },
+        ]
       }
     ],
-    historyUpdateMessage: [
-      {
-        title: String,
-        description: String,
-        status: String,
-        priority: Number,
-        timestamp: {
-          // created: { type: Date, default: Date.now },
-          updated: { type: Date, default: Date.now },
-        },
-      },
-    ]
   });
