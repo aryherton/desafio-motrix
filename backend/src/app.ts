@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import connection from './database/model/Connections';
 import router from './routes';
+import middlewreError from './middlewares/Error';
 
 export default class App {
   app: express.Express;
@@ -10,14 +11,14 @@ export default class App {
 
   constructor () {
     this.app = express();
-    // this.middleware();
+    this.middleware();
     this.routes();
     this.connect = connection();
   }
 
-  // private middleware() {
-  //   this.app.use(express.json);
-  // }
+  private middleware() {
+    this.app.use(middlewreError);
+  }
 
   private routes() {
     this.app.use(cors());
