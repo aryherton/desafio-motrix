@@ -3,7 +3,7 @@ import cors from 'cors';
 
 import connection from './database/model/Connections';
 import router from './routes';
-import middlewreError from './middlewares/Error';
+import middlewareError from './middlewares/Error';
 
 export default class App {
   app: express.Express;
@@ -17,7 +17,7 @@ export default class App {
   }
 
   private middleware() {
-    this.app.use(middlewreError);
+    this.app.use(middlewareError);
   }
 
   private routes() {
