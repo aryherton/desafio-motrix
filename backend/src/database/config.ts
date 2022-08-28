@@ -3,8 +3,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 export default {
-  user: 'root',
-  pass: 'ary123456',
+  user: process.env.USER_NAME,
+  pass: process.env.PASSWORD,
   autoIndex: false,
-  dbName: 'Ebytr',
+  dbName: process.env.DB_NAME,
 };
