@@ -26,10 +26,10 @@ export default class User {
   }
 
   async validUser(email: string, password: string): Promise<string | undefined> {
-    const data = await this.getUserByEmail(email);
+    const pswd = await this.userModel.getPassword(email);
+    console.log(pswd, 'data');
 
-    if (data.length) {
-      const pswd = data[0].password;
+    if (pswd) {
       const checkPswd = await bcrypt.compare(password, pswd);
 
       if (checkPswd) {
