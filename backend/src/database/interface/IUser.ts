@@ -6,5 +6,4 @@ export default interface User {
   password: string,
   manager?: boolean,
   arrMessage?: IMessage[],
-  historyUpdateMessage?: IMessage[],
 }
