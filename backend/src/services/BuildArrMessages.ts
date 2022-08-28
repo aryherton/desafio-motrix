@@ -13,11 +13,17 @@ export default class BuildArrMessagens {
     return arrMessage;
   };
 
-  async updateMessageArr(email: string, message: IMessage): Promise<IMessage []> {
-    const [ { arrMessage } ] = await this.userModel.getByEmail(email);
+  async updateMessageArr(email: string, message: IMessage): Promise<IMessage[]> {
+    let newMessage = message;
+    const [{ arrMessage }] = await this.userModel
+      .getByEmail(email);
     const newArrMessage = arrMessage?.map((mess) => {
-      if (mess._id?.toString() === message._id) {
-        return message;
+      if (mess._id?.toString() === newMessage._id) {
+        const previousMessage = mess;
+        delete previousMessage._id;
+        mess.historyUpdate.push(previousMessage);
+        newMessage.historyUpdate = mess.historyUpdate;
+        return newMessage;
       }
 
       return mess;
