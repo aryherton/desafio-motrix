@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 import Joi from '../help/Joi';
 import StatusHttp from '../enum/statusHttp';
 import Messages from '../enum/messageRes';
+// import Errors from '../error/ClassErrors';
 
 export default class ValidLogin {
   static validLoginBody(req: Request, res: Response, next: NextFunction){
@@ -12,10 +13,12 @@ export default class ValidLogin {
         
         if (erro) {
             return res.status(StatusHttp.BAD_REQUEST).json({ message: erro.message});
+            // throw Errors.notFound(erro.message);
         }
         next();
     } catch(e) {
         console.log(e);
+        // next(e);
         return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
     }
    }
@@ -29,9 +32,9 @@ export default class ValidLogin {
             return res.status(StatusHttp.BAD_REQUEST).json({ message: erro.message});
         }
         next();
-    } catch(e) {
-        console.log(e);
-        return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
+    } catch(error) {
+        console.log(error);
+        throw error;
     }
    }
 }
