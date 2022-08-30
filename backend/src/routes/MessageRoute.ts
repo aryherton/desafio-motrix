@@ -6,7 +6,6 @@ const ctrll = new MessageCtrll();
 const router = Router();
 
 export default router
-  .get('/', ctrll.getMessageCtrll)
   .post('/', ctrll.setMessageCtrll)
   .put('/', ctrll.updateMessageCtrll)
   .delete('/', ctrll.deleteMessageCtrll);
