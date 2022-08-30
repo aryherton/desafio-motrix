@@ -12,7 +12,7 @@ export default class User {
     return this.userModel.getAll();
   };
 
-  async getUserByEmail(email: string): Promise<IUser[]> {
+  async getUserByEmail(email: string): Promise<IUser> {
     return this.userModel.getByEmail(email);
   };
 
