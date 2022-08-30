@@ -1,30 +1,51 @@
-import UsersModel from '../database/model/UsersModel';
+import MessageModel from '../database/model/MessageModel';
 import IMessage from '../database/interface/IMessage';
 import IUser from '../database/interface/IUser';
+import mongoose from 'mongoose';
 
 export default class Message {
-  constructor(private userModel = new UsersModel()){}
+  constructor(private messageModel = new MessageModel()){}
 
- async setMessage(email: string, arrMessage: IMessage[]): Promise<void> {
-  await this.userModel.updateMessage(email, arrMessage);
+ async setMessage(message: IMessage): Promise<IMessage> {
+    const mess = await this.messageModel.create(message);
+
+   return mess;
   };
 
- async getMessage(email: string): Promise<IUser> {
-  const [ user ] = await this.userModel.getByEmail(email);
+  async getAllMessage(idUser: string): Promise<IMessage[]> {
+    const message = await this.messageModel.getAll(idUser);
+
+    return message;
+  }
+
+  async getMessage(id: string): Promise<IMessage | void> {
+    const message = await this.messageModel.getById(id);
   
-  return user;
+    return message;
   };
   
-  async updateMessage(email: string, arrMessage: IMessage[]) {
-    await this.userModel.updateMessage(email, arrMessage);
+  async updateMessage(id: string, newMessage: IMessage): Promise<void> {
+    const message = await this.getMessage(id);
+
+    await this.messageModel.updateMessage(id, newMessage);
+
+    let tmpMess = await this.getMessage(id);
+    if (tmpMess && message) {
+      tmpMess.historyUpdate.push({
+        title: message.title,
+        description: message.description,
+        status: message.status,
+        priority: message.priority,
+        updatedAt: new Date(),
+      });
+
+      await this.messageModel.updateMessage(id, tmpMess);
+    }
   };
 
-  async deleteMessage(email: string, arrMessDel: string[]): Promise<void> {
-    const user = await this.getMessage(email);    
-    const newArrMessage = user
-      .arrMessage?.filter((mess) => arrMessDel
-        .every((messDel) => mess._id?.toString() !== messDel));
-    
-    await this.userModel.updateMessage(email, newArrMessage || []);
+  async deleteMessage(arrMessDel: string[]): Promise<void> {    
+    await Promise.all(arrMessDel.map(async (id: string) => {
+      await this.messageModel.deleteMessage(id);
+    }));
   };
 }
