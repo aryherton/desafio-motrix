@@ -14,11 +14,11 @@ export default class UsersModel {
   };
 
   async getAll(): Promise<IUser[]> {
-    return this.model.find({}, { password: 0, updatedAt: 0, __v: 0 });
+    return this.model.find({}, { password: 0 });
   };
 
-  async getByEmail(email: string): Promise<IUser[]> {
-    return this.model.find({ email }, { password: 0, updatedAt: 0, __v: 0 });
+  async getByEmail(email: string): Promise<IUser> {
+    return this.model.findOne({ email }, { password: 0 }) as unknown as Promise<IUser>;
   };
 
   async getPassword(email: string): Promise<string | void> {
@@ -29,12 +29,8 @@ export default class UsersModel {
     }
   };
 
-  async updateMessage(email: string, arrMessage: IMessage[]): Promise<void> {
-    await this.model.updateOne({ email }, { arrMessage });
-  };
-
   async updateUser(email: string, user: IUser): Promise<void> {
-    await this.model.updateOne({ email }, { ...user });
+    await this.model.updateOne({ email }, user);
   };
 
   async deleteUser(id: string): Promise<void> {
