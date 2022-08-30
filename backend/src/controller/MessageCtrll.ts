@@ -1,9 +1,7 @@
 import { Request, Response } from 'express';
 
-import BuildArrMessagens from '../services/BuildArrMessages';
 import StatusHttp from '../enum/statusHttp';
 import Messages from '../enum/messageRes';
-import IUser from '../database/interface/IUser';
 import IMessage from '../database/interface/IMessage';
 import Token from '../help/Token';
 import MessageServ from '../services/Message';
@@ -15,18 +13,16 @@ export default class MessageCtrll {
   async setMessageCtrll(req: Request, res: Response) {
     try {
         const { authorization } = req.headers;
-        const message: IMessage = req.body.message;
+        let message: IMessage = req.body;
         
         if (authorization) {
           const user = Token.validToken(authorization) as JwtPayload;
           const messageServ = new MessageServ();
-          const buildArrMess = new BuildArrMessagens();
-          const arrMessage: IMessage[] = await buildArrMess
-            .insertMessageArr(user.email, message) as IMessage[];
+          message.idUser = user._id;
 
-          await messageServ.setMessage(user.email, arrMessage);
+          await messageServ.setMessage(message);
 
-        return res.status(StatusHttp.OK).json({ message: Messages.UPDATE_SUCCESS });
+          return res.status(StatusHttp.OK).json({ message: Messages.SUCCESS_RECORD });
         }
 
         return res.status(StatusHttp.NO_CONTENT).json({ message: Messages.NOT_TOKEN });
@@ -36,37 +32,16 @@ export default class MessageCtrll {
     }
   };
 
-  async getMessageCtrll(req: Request, res: Response) {
-    try {
-      const { authorization } = req.headers;
-
-      if (authorization) {
-        const user = Token.validToken(authorization) as JwtPayload;
-        const messageServ = new MessageServ();
-        const userMessage = await messageServ.getMessage(user.email);
-
-        return res.status(StatusHttp.OK).json(userMessage);
-      }
-
-      return res.status(StatusHttp.OK).json({ message: Messages.NOT_TOKEN });
-    } catch(e) {
-      console.log(e);
-    }
-  };
-
   async updateMessageCtrll(req: Request, res: Response) {
     try {
       const { authorization } = req.headers;
       const message: IMessage = req.body;
 
       if (authorization) {
-        const user = Token.validToken(authorization) as JwtPayload;
+        Token.validToken(authorization) as JwtPayload;
         const messageServ = new MessageServ();
-        const buildArrMess = new BuildArrMessagens();
-        const arrMessage: IMessage[] = await buildArrMess
-          .updateMessageArr(user.email, message) as IMessage[];
 
-        await messageServ.updateMessage(user.email, arrMessage);
+        await messageServ.updateMessage(message._id, message);
 
         return res.status(StatusHttp.OK).json({ message: Messages.UPDATE_SUCCESS });
       }
@@ -81,13 +56,13 @@ export default class MessageCtrll {
   async deleteMessageCtrll(req: Request, res: Response) {
     try {
       const { authorization } = req.headers;
-      const arrMessDel = req.body;
+      const arrMessDel: string[] = req.body;
 
       if (authorization) {
         const user = Token.validToken(authorization) as JwtPayload;
         const messageServ = new MessageServ();
         await messageServ
-          .deleteMessage(user.email, arrMessDel);
+          .deleteMessage(arrMessDel);
 
         return res.status(StatusHttp.OK).json({ message: Messages.DELETE_SUCCESS });
       }
