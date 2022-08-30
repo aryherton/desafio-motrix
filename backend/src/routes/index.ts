@@ -1,11 +1,11 @@
 import { Router } from 'express';
 
-import Login from './LoginRoute';
+import User from './UserRoute';
 import Message from './MessageRoute';
 
 const routes = Router();
 
 export default routes
-  .use('/login', Login)
+  .use('/user', User)
   .use('/message', Message);
 
