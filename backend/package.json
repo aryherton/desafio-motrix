@@ -7,8 +7,8 @@
   "scripts": {
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
     "postinstall": "tsc",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
-    "startDev": "ts-node ./src/server.ts",
+    "startDev": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "ts-node ./src/server.ts",
     "startNodemon": "nodemon --watch \"./src/**\" ./src/server.ts",
     "dev": "nodemon --watch \"./src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/server.ts\""
   },
@@ -18,7 +18,7 @@
     "url": "https://github.com/aryherton"
   },
   "engines": {
-    "node": "12.14.0",
+    "node": "14.18.0",
     "yarn": "1.x"
   },
   "keywords": [],
