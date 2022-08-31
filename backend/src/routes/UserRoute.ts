@@ -7,6 +7,6 @@ const ctrll = new LoginCtrll();
 const router = Router();
 
 export default router
-  .get('/', ValidLogin.validLoginBody, ctrll.checkLogin)
   .get('/message', ctrll.getUser)
-  .post('/', ValidLogin.validLoginRegister, ctrll.createUser);
+  .post('/login', ValidLogin.validLoginBody, ctrll.checkLogin)
+  .post('/register', ValidLogin.validLoginRegister, ctrll.createUser);
