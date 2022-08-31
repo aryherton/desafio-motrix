@@ -6,7 +6,9 @@
   "private": "true",
   "scripts": {
     "test": "mocha -r ts-node/register ./src/tests/*$NAME*.{test,spec}.ts -t 10000 --exit",
-    "start": "ts-node ./src/server.ts",
+    "postinstall": "tsc",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "startDev": "ts-node ./src/server.ts",
     "startNodemon": "nodemon --watch \"./src/**\" ./src/server.ts",
     "dev": "nodemon --watch \"./src/**\" --ext \"ts,json\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/server.ts\""
   },
@@ -14,6 +16,10 @@
     "name": "Ary Barbosa",
     "email": "aryhertonbarbosa@gmail.com",
     "url": "https://github.com/aryherton"
+  },
+  "engines": {
+    "node": "12.14.0",
+    "yarn": "1.x"
   },
   "keywords": [],
   "license": "ISC",
