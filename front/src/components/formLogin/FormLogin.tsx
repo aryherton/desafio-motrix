@@ -34,6 +34,13 @@ function FormLogin(): JSX.Element {
         return;
       }
 
+      if (token) {
+        localStorage.setItem('user', JSON.stringify({ token, email, name }));
+        const userDatas = await getDatas('user/message', token);
+
+        dispatch(changeUser(userDatas));
+      }
+
     } if (typeForm === 'login') {
 
       if (!email || !password) {
