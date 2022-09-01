@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import Image from 'next/image'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
 
 import { LoginWrapper } from './styleHeader'
 import Sair from '../../assets/images/sair.png'
