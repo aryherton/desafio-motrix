@@ -1,56 +1,63 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { changeUser } from '../../redux/slice/userSlice';
+import {
+  loginGetToken,
+  registerUser,
+  getDatas,
+} from '../../utils/api';
 
 function FormLogin(): JSX.Element {
+  const dispatch = useDispatch();
   const [name, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [typeForm, setTypeForm] = useState('login');
+  const [error, setError] = useState('');
 
-  const loginAndRegister = async () => {
+  const handleDatas = async () => {
     let token = '';
     if (typeForm === 'register') {
       if (!name || !email || !password) {
         alert('Preencha todos os campos');
         return;
       }
-      // token = await creatRegister('user/register', {
-      //   name,
-      //   email,
-      //   password,
-      // });
-      // if (+token === 409) {
-      //   alert('E-mail já cadastrado');
-      //   return;
-      // }
+      token = await registerUser('user/register', {
+        name,
+        email,
+        password,
+      })
+
+      if (+token === 409) {
+        alert('E-mail já cadastrado')
+        return;
+      }
 
     } if (typeForm === 'login') {
 
       if (!email || !password) {
-        alert('Preencha todos os campos');
+        alert('Preencha todos os campos')
         return;
       }
-      // token = await login('user/login', {
-      //   email,
-      //   password,
-      // });
+      token = await loginGetToken('user/login', {
+        email,
+        password,
+      })
 
-      // if (!token || +token === 500) {
-      //   setError('Not found');
-      //   return;
-      // }
+      if (!token || +token === 404) {
+        setError('Not found');
+        return;
+      }
 
     }
-    // if (token) {
-    //   console.log('final');
-    //   localStorage.setItem('user', JSON.stringify({ token, email, name }));
-    //   const arrUsers = await getAllUser('user/', token);
-    //   const dataCryptonApi = await getDataApiMercBTC();
+    if (token) {
+      localStorage.setItem('user', JSON.stringify({ token, email, name }));
+      const userDatas = await getDatas('user/message', token);
 
-    //   setDataCryptApi(dataCryptonApi);
-    //   setDataUser(arrUsers);
-    //   nav('/home');
-    // }
-  };
+      dispatch(changeUser(userDatas));
+    }
+  }
 
   return (
     <div>
@@ -92,7 +99,7 @@ function FormLogin(): JSX.Element {
             id="btnFirst"
             type="button"
             className="btn"
-            onClick={loginAndRegister}
+            onClick={handleDatas}
           >
             {typeForm === 'login' ? 'Login' : 'Registre-se'}
           </button>
@@ -106,8 +113,9 @@ function FormLogin(): JSX.Element {
           </button>
         </div>
       </form>
+      {error && <p>{'Usuário ou senha incorreto'}</p>}
     </div>
-  );
+  )
 }
 
-export default FormLogin;
+export default FormLogin
