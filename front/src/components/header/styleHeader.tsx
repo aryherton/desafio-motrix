@@ -6,9 +6,11 @@ export const LoginWrapper = styled.header`
   align-items: center;
 
   width: 100vw;
-  height: 80px;
+  height: 70px;
 
-  background-color: blue;
+  background-color: #ffffff;
+
+  box-shadow: 1px 1px 5px 1px #323131;
 
   #header_info_user {
     width: 20%;
