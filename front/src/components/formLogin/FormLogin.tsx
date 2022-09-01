@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import { changeUser } from '../../redux/slice/userSlice';
 import {
@@ -9,6 +10,7 @@ import {
 } from '../../utils/api';
 
 function FormLogin(): JSX.Element {
+  const router = useRouter();
   const dispatch = useDispatch();
   const [name, setUserName] = useState('');
   const [email, setEmail] = useState('');
@@ -39,6 +41,7 @@ function FormLogin(): JSX.Element {
         const userDatas = await getDatas('user/message', token);
 
         dispatch(changeUser(userDatas));
+        router.push('/home');
       }
 
     } if (typeForm === 'login') {
@@ -63,6 +66,7 @@ function FormLogin(): JSX.Element {
       const userDatas = await getDatas('user/message', token);
 
       dispatch(changeUser(userDatas));
+      router.push('/home');
     }
   }
 
