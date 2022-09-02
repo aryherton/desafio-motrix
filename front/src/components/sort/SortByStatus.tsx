@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeIsChecked } from '../../redux/slice/filterSearch';
+import { SortStatusWrapper } from './styleSortStatus';
 
 function SortByStatus(): JSX.Element {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ function SortByStatus(): JSX.Element {
   }
 
   return (
-    <form>
+    <SortStatusWrapper>
       <input
         name="sort_status"
         type="checkbox"
@@ -20,7 +21,7 @@ function SortByStatus(): JSX.Element {
         onClick={ handleSortByStatus }
       />
       <label htmlFor="sort_status">Agrupar por status</label>
-    </form>
+    </SortStatusWrapper>
   )
 }
 
