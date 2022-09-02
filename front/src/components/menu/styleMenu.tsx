@@ -8,5 +8,4 @@ export const MenuWrapper = styled.section`
 
   width: 100%;
   height: 110px;
-  background-color: yellow;
 `
