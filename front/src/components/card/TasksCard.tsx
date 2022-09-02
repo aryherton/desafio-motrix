@@ -19,7 +19,7 @@ function TasksCard(): JSX.Element {
           <CardWrapper key={task._id + index}>
             <div className="main_info">
               <div className="img_status">
-                <Image src={ CorrectImg } alt="checked" width={15} height={15} />
+                <Image src={ CorrectImg } alt="checked" width={25} height={25} />
               </div>
               <div className="titleAndTxt">
                 <div className="titleTask">
