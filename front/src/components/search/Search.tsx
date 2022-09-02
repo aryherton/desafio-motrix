@@ -20,19 +20,21 @@ function Search(): JSX.Element {
 
   return (
     <SearchWrapper>
-      <input
-        type="text"
-        placeholder="Pesquisar por título"
-        onChange={ getDataInput }
-      />
-      <Image
-        src={ImgSearch}
-        alt="search"
-        width={20} height={20}
-        // onClick={ handleSearch }
-      />
+    <input
+      className="inputSearch"
+      type="text"
+      placeholder="Pesquisar por título"
+      onChange={ getDataInput }
+    />
+    <Image
+      className="imgSearch"
+      src={ImgSearch}
+      alt="search"
+      width={ 25 } height={ 25 }
+      // onClick={ handleSearch }
+    />
     </SearchWrapper>
-  )
-}
+    )
+  }
 
-export default Search
+  export default Search
