@@ -8,7 +8,7 @@ import { MenuWrapper } from './styleMenu'
 
 function Menu(): JSX.Element {
   return (
-    <MenuWrapper>
+    <MenuWrapper id="sectionMenu">
       <Search />
       <div className="sortTodoList">
         <div className="sort">
