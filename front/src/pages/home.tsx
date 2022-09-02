@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 import Header from '../components/header/Header'
 import Menu from '../components/menu/Menu'
-import { HomeWrapper } from './styles/pagesStyle/styledHome'
+import { HomeWrapper } from '../styles/pagesStyle/styledHome'
 import { getDatas } from '../utils/api'
 import { changeAllTasks } from '../redux/slice/tasksSlice'
 import TasksCard from '../components/card/TasksCard'

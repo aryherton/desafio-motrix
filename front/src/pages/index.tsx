@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 import FormLogin from '../components/formLogin/FormLogin'
-import { LoginWrapper } from './styles/pagesStyle/styledLogin'
+import { LoginWrapper } from '../styles/pagesStyle/styledLogin'
 import Logo from '../assets/images/logo.png'
 
 function Login(): JSX.Element {

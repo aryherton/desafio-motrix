@@ -3,8 +3,8 @@ import { ThemeProvider } from 'styled-components'
 import { Provider } from 'react-redux'
 import store from '../redux/store/store'
 
-import GlobalStyle from './styles/global'
-import theme from './styles/theme'
+import GlobalStyle from '../styles/global'
+import theme from '../styles/theme'
 
 function MyApp({ Component, pageProps }): JSX.Element {
   return (
