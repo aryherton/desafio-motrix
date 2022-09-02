@@ -5,10 +5,14 @@ export const LoginWrapper = styled.header`
   justify-content: space-around;
   align-items: center;
 
+  font-size: 18px;
+  font-weight: 500;
+  color: #0808d6;
+
   width: 100vw;
   height: 70px;
 
-  background-color: #ffffff;
+  background-color: #92e9ad;
 
   box-shadow: 1px 1px 5px 1px #323131;
 
