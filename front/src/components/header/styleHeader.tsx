@@ -7,7 +7,7 @@ export const LoginWrapper = styled.header`
 
   font-size: 18px;
   font-weight: 500;
-  color: #0808d6;
+  color: #0606ca;
 
   width: 100vw;
   height: 70px;
