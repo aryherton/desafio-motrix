@@ -16,23 +16,31 @@ export const CardWrapper = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
 
       width: 95%;
-      height: 25%;
+      height: 20%;
 
       margin: 10px 0;
 
-      border: 2px solid #30ee39;
+      background-color: #b9d7be;
+      border-left: 10px solid #30ee39;
       border-radius: 15px;
 
       .main_info {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
+
+        color: #12318e;
+
+        background-color: #ddebdf;
+        border-radius: 5px 15px 0px 0px;
+        box-shadow: 1px 2px 0px 0px #a0f3e7;
 
         width: 100%;
-        height: 75%;
+        height: 55%;
+
+        margin-top: 10px;
 
         .img_status {
           display: flex;
@@ -51,9 +59,12 @@ export const CardWrapper = styled.div`
           width: 70%;
           height: 100%;
 
+          border-right: 2px solid #48ed8d;
+          border-radius: 10px;
+
           .titleTask {
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
 
             margin-top: 4%;
@@ -66,7 +77,7 @@ export const CardWrapper = styled.div`
             margin: 2% 2%;
 
             p {
-              font-size: 12px;
+              font-size: 10px;
             }
           }
         }
@@ -74,20 +85,32 @@ export const CardWrapper = styled.div`
         .menuTask {
           display: flex;
           flex-direction: column;
+          align-items: left;
           justify-content: space-around;
 
-          width: 20%;
+          width: 10%;
           height: 80%;
+
+          button {
+            width: 100%;
+            height: 30%;
+
+            font-size: 14px;
+
+            background: none;
+            border: none;
+
+            color: #070a08;
+            cursor: pointer;
+          }
 
           .delete {
             display: flex;
             align-items: center;
             justify-content: space-around;
 
-            width: 80%;
-            height: 0%;
-
-            font-size: 13px;
+            width: 100%;
+            height: 30%;
           }
         }
       }
@@ -97,18 +120,31 @@ export const CardWrapper = styled.div`
         align-items: center;
         justify-content: space-between;
 
-        width: 100%;
-        height: 25%;
+        color: #4d2103;
+
+        width: 80%;
+        height: 15%;
 
         .statusTask {
-          width: 25%;
-          height: 70%;
+          width: 20%;
+          height: 90%;
 
           .selectStatus {
             width: 100%;
             height: 100%;
 
-            font-size: 10px;
+            color: #04244a;
+            font-weight: 500;
+            text-align: center;
+
+            background-color: #FBB282;
+            border: none;
+            font-size: 14px;
+            border-radius: 10px;
+
+            input {
+              line-height: 50px;
+            }
           }
         }
 
@@ -116,8 +152,10 @@ export const CardWrapper = styled.div`
           width: 25%;
           height: 70%;
 
+          text-align: center;
+
           .txt_priority {
-            font-size: 12px;
+            font-size: 10px;
           }
 
           .name_priority {
@@ -129,7 +167,7 @@ export const CardWrapper = styled.div`
         }
 
         .dateTask {
-          width: 45%;
+          width: 25%;
           height: 70%;
 
           text-align: center;
@@ -140,8 +178,14 @@ export const CardWrapper = styled.div`
         }
 
         .historyTask {
-          width: 25%;
+          width: 20%;
           height: 100%;
+
+          color: #4d2103;
+
+          background: none;
+          border: none;
+          cursor: pointer;
 
           font-size: 10px;
         }
@@ -160,17 +204,24 @@ export const CardWrapper = styled.div`
         justify-content: center;
 
         width: 90%;
-        height: 25%;
+        height: 300px;
 
         margin: 10px 0;
 
-        border: 2px solid #30ee39;
+        background-color: #b9d7be;
+        border-left: 10px solid #30ee39;
         border-radius: 15px;
 
         .main_info {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: space-around;
+
+          color: #12318e;
+
+          background-color: #ddebdf;
+          border-radius: 5px 15px 0px 0px;
+          box-shadow: 1px 2px 0px 0px #a0f3e7;
 
           width: 100%;
           height: 75%;
@@ -191,6 +242,9 @@ export const CardWrapper = styled.div`
 
             width: 70%;
             height: 100%;
+
+            border-right: 2px solid #48ed8d;
+            border-radius: 10px;
 
             .titleTask {
               text-align: center;
@@ -215,10 +269,24 @@ export const CardWrapper = styled.div`
           .menuTask {
             display: flex;
             flex-direction: column;
+            align-items: left;
             justify-content: space-around;
 
-            width: 20%;
+            width: 10%;
             height: 80%;
+
+            button {
+              width: 100%;
+              height: 30%;
+
+              font-size: 20px;
+
+              background: none;
+              border: none;
+
+              color: #070a08;
+              cursor: pointer;
+            }
 
             .delete {
               display: flex;
@@ -226,9 +294,7 @@ export const CardWrapper = styled.div`
               justify-content: space-around;
 
               width: 80%;
-              height: 0%;
-
-              font-size: 13px;
+              height: 30%;
             }
           }
         }
@@ -238,24 +304,39 @@ export const CardWrapper = styled.div`
           align-items: center;
           justify-content: space-between;
 
-          width: 100%;
-          height: 25%;
+          color: #4d2103;
+
+          width: 80%;
+          height: 15%;
 
           .statusTask {
-            width: 25%;
+            width: 20%;
             height: 70%;
 
             .selectStatus {
               width: 100%;
-              height: 100%;
+              height: 90%;
 
-              font-size: 10px;
+              color: #04244a;
+              font-weight: 500;
+              text-align: center;
+
+              background-color: #FBB282;
+              border: none;
+              font-size: 12px;
+              border-radius: 10px;
+
+              input {
+                line-height: 50px;
+              }
             }
           }
 
           .priorityTask {
             width: 25%;
             height: 70%;
+
+            text-align: center;
 
             .txt_priority {
               font-size: 12px;
@@ -270,21 +351,27 @@ export const CardWrapper = styled.div`
           }
 
           .dateTask {
-            width: 45%;
+            width: 25%;
             height: 70%;
 
             text-align: center;
 
             p {
-              font-size: 10px;
+              font-size: 12px;
             }
           }
 
           .historyTask {
-            width: 25%;
+            width: 20%;
             height: 100%;
 
-            font-size: 10px;
+            color: #4d2103;
+
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            font-size: 12px;
           }
         }
       }
@@ -294,29 +381,31 @@ export const CardWrapper = styled.div`
     @media screen {
       @media (
         min-width: 769px
-        ) and (max-width: 1024px) {
+        ) and (max-width: 1279px) {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
 
           width: 90%;
-          height: 25%;
+          height: 30%;
 
           margin: 10px 0;
 
-          background-color: #d4ecd8;
-          border-left: 5px solid #30ee39;
-          border-radius: 20px;
+          background-color: #b9d7be;
+          border-left: 10px solid #30ee39;
+          border-radius: 15px;
 
           .main_info {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-around;
 
-            background-color: #edf4ee;
-            border-radius: 5px 5px 0px 0px;
-            box-shadow: 1px 2px 0px 0px #57f9e1;
+            color: #12318e;
+
+            background-color: #ddebdf;
+            border-radius: 5px 15px 0px 0px;
+            box-shadow: 1px 2px 0px 0px #a0f3e7;
 
             width: 100%;
             height: 75%;
@@ -337,6 +426,9 @@ export const CardWrapper = styled.div`
 
               width: 70%;
               height: 100%;
+
+              border-right: 2px solid #48ed8d;
+              border-radius: 10px;
 
               .titleTask {
                 text-align: center;
@@ -361,10 +453,24 @@ export const CardWrapper = styled.div`
             .menuTask {
               display: flex;
               flex-direction: column;
+              align-items: left;
               justify-content: space-around;
 
-              width: 20%;
+              width: 10%;
               height: 80%;
+
+              button {
+                width: 100%;
+                height: 30%;
+
+                font-size: 20px;
+
+                background: none;
+                border: none;
+
+                color: #070a08;
+                cursor: pointer;
+              }
 
               .delete {
                 display: flex;
@@ -372,9 +478,7 @@ export const CardWrapper = styled.div`
                 justify-content: space-around;
 
                 width: 80%;
-                height: 0%;
-
-                font-size: 13px;
+                height: 30%;
               }
             }
           }
@@ -387,7 +491,7 @@ export const CardWrapper = styled.div`
             color: #4d2103;
 
             width: 80%;
-            height: 25%;
+            height: 15%;
 
             .statusTask {
               width: 20%;
@@ -465,21 +569,28 @@ export const CardWrapper = styled.div`
           align-items: center;
           justify-content: center;
 
-          width: 90%;
-          height: 25%;
+          width: 80%;
+          height: 200px;
 
           margin: 10px 0;
 
-          border: 2px solid #30ee39;
+          background-color: #b9d7be;
+          border-left: 10px solid #30ee39;
           border-radius: 15px;
 
           .main_info {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-around;
+
+            color: #12318e;
+
+            background-color: #ddebdf;
+            border-radius: 5px 15px 0px 0px;
+            box-shadow: 1px 2px 0px 0px #a0f3e7;
 
             width: 100%;
-            height: 75%;
+            height: 70%;
 
             .img_status {
               display: flex;
@@ -497,6 +608,9 @@ export const CardWrapper = styled.div`
 
               width: 70%;
               height: 100%;
+
+              border-right: 2px solid #48ed8d;
+              border-radius: 10px;
 
               .titleTask {
                 text-align: center;
@@ -521,10 +635,24 @@ export const CardWrapper = styled.div`
             .menuTask {
               display: flex;
               flex-direction: column;
+              align-items: left;
               justify-content: space-around;
 
-              width: 20%;
+              width: 10%;
               height: 80%;
+
+              button {
+                width: 100%;
+                height: 30%;
+
+                font-size: 20px;
+
+                background: none;
+                border: none;
+
+                color: #070a08;
+                cursor: pointer;
+              }
 
               .delete {
                 display: flex;
@@ -532,9 +660,7 @@ export const CardWrapper = styled.div`
                 justify-content: space-around;
 
                 width: 80%;
-                height: 0%;
-
-                font-size: 13px;
+                height: 30%;
               }
             }
           }
@@ -544,24 +670,39 @@ export const CardWrapper = styled.div`
             align-items: center;
             justify-content: space-between;
 
-            width: 100%;
-            height: 25%;
+            color: #4d2103;
+
+            width: 80%;
+            height: 15%;
 
             .statusTask {
-              width: 25%;
+              width: 20%;
               height: 70%;
 
               .selectStatus {
                 width: 100%;
-                height: 100%;
+                height: 90%;
 
-                font-size: 10px;
+                color: #04244a;
+                font-weight: 500;
+                text-align: center;
+
+                background-color: #FBB282;
+                border: none;
+                font-size: 12px;
+                border-radius: 10px;
+
+                input {
+                  line-height: 50px;
+                }
               }
             }
 
             .priorityTask {
               width: 25%;
               height: 70%;
+
+              text-align: center;
 
               .txt_priority {
                 font-size: 12px;
@@ -576,21 +717,27 @@ export const CardWrapper = styled.div`
             }
 
             .dateTask {
-              width: 45%;
+              width: 25%;
               height: 70%;
 
               text-align: center;
 
               p {
-                font-size: 10px;
+                font-size: 12px;
               }
             }
 
             .historyTask {
-              width: 25%;
+              width: 20%;
               height: 100%;
 
-              font-size: 10px;
+              color: #4d2103;
+
+              background: none;
+              border: none;
+              cursor: pointer;
+
+              font-size: 12px;
             }
           }
         }
