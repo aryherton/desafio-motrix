@@ -11,7 +11,7 @@ export const HomeWrapper = styled.div`
   main {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 
     width: 100%;
     height: 100%;
