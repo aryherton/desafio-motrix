@@ -16,7 +16,7 @@ function SortByStatus(): JSX.Element {
       <input
         name="sort_status"
         type="checkbox"
-        id="sortStatus"
+        id="sort_status"
         value="status"
         onClick={ handleSortByStatus }
       />
