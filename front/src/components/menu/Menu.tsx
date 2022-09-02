@@ -15,8 +15,8 @@ function Menu(): JSX.Element {
           <SortByDate />
           <SortByPriority />
         </div>
-        <SortByStatus />
       </div>
+      <SortByStatus />
     </MenuWrapper>
   )
 }
