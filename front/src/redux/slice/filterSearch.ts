@@ -5,7 +5,7 @@ export const slice = createSlice({
   initialState: {
     isChecked: false,
     searchDate: 'asc',
-    searchPriority: '',
+    searchPriority: 'all',
     searchText: '',
   },
 
