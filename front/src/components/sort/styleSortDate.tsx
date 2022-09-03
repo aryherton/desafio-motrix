@@ -10,20 +10,24 @@ export const SortDateWrapper = styled.div`
     width: 60%;
     height: 60px;
     margin-top: 5px;
+    font-size: 13px;
 
     .shortButtons {
       width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .button_sort_date {
         background-color: #1f7fbf;
         border: 1px solid #416df1;
         border-radius: 5px;
-        font-size: 11px;
+        font-size: 14px;
         font-weight: 600;
         color: #fff;
 
         width: 80px;
-        height: 30px;
+        height: 35px;
         margin-left: 20px;
       }
     }
@@ -40,6 +44,9 @@ export const SortDateWrapper = styled.div`
 
     .shortButtons {
       width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .button_sort_date {
         background-color: #1f7fbf;
@@ -67,6 +74,9 @@ export const SortDateWrapper = styled.div`
 
     .shortButtons {
       width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .button_sort_date {
         background-color: #1f7fbf;
@@ -90,10 +100,13 @@ export const SortDateWrapper = styled.div`
     align-items: center;
     width: 60%;
     height: 60px;
-    margin-top: 5px;
+    margin-top: 10px;
 
     .shortButtons {
       width: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       .button_sort_date {
         background-color: #1f7fbf;

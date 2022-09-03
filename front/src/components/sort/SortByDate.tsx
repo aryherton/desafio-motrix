@@ -12,21 +12,14 @@ function SortByDate(): JSX.Element {
 
   return (
     <SortDateWrapper>
-      <p>Ordenar por: </p>
+      <p>Adicione uma nova tarefa</p>
       <div className="shortButtons">
         <button
           className="button_sort_date"
           value="asc"
           onClick={ handleSortByDate }
         >
-        Mais recentes
-        </button>
-        <button
-          className="button_sort_date"
-          value="desc"
-          onClick={ handleSortByDate }
-        >
-        Mais antigos
+        Adicionar
         </button>
       </div>
     </SortDateWrapper>
