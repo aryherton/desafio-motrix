@@ -42,7 +42,7 @@ export const MenuWrapper = styled.section`
       align-items: center;
 
       width: 100%;
-      height: 140px;
+      height: 160px;
 
       .sortTodoList {
         width: 100%;
@@ -74,7 +74,7 @@ export const MenuWrapper = styled.section`
       align-items: center;
 
       width: 100%;
-      height: 140px;
+      height: 160px;
 
       .sortTodoList {
         width: 100%;
