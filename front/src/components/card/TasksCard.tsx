@@ -1,19 +1,49 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import Image from 'next/image'
 
 import { TasksWrapper, CardWrapper } from './styleTasksCard'
 import { ITasks } from '../../interface/ITasks'
+import { changeFilterTasks } from '../../redux/slice/tasksSlice'
 import { convertDateTime } from '../../utils/changeDate'
 import CorrectImg from '../../assets/images/correct.png'
 import DeleteImg from '../../assets/images/delete.png'
 
 function TasksCard(): JSX.Element {
-  const { allTasks } = useSelector((state: any) => state.tasks)
+  const dispatch = useDispatch()
+  const { allTasks, filterTasks } = useSelector((state: any) => state.tasks)
+  const { searchPriority } = useSelector((state: any) => state.filterSearch)
+
+  const handleArrTasks = () => {
+    if (searchPriority) {
+      switch (searchPriority) {
+        case 'high':
+          const highPriority = allTasks.filter((task: ITasks) => task.priority === 'Alta')
+          dispatch(changeFilterTasks(highPriority))
+          break
+        case 'medium':
+          const mediumPriority = allTasks.filter((task: ITasks) => task.priority === 'Media')
+          dispatch(changeFilterTasks(mediumPriority))
+          break
+        case 'low':
+          const lowPriority = allTasks.filter((task: ITasks) => task.priority === 'Baixa')
+          dispatch(changeFilterTasks(lowPriority))
+          break
+        default:
+          dispatch(changeFilterTasks(allTasks))
+      }
+    } else {
+      dispatch(changeFilterTasks(allTasks))
+    }
+  }
+
+  useEffect(() => {
+    handleArrTasks()
+  }, [searchPriority])
 
   return (
     <TasksWrapper id="sectionCardsTasks">
-      {allTasks?.map((task: ITasks, index: number) => {
+      {filterTasks?.map((task: ITasks, index: number) => {
         const arrStatus = ['Pendente', 'Em andamento', 'Completo']
         return (
           <CardWrapper key={task._id + index}>
