@@ -14,10 +14,8 @@ function App(): JSX.Element {
   }
 
   useEffect(() => {
-    if (searchPriority) {
+    if (searchPriority !== "all") {
       setCheck(false)
-    } else {
-      setCheck(true)
     }
   }, [searchPriority])
 
@@ -28,7 +26,7 @@ function App(): JSX.Element {
           name="priority"
           type="radio"
           id="priority_all"
-          value=""
+          value="all"
           defaultChecked={check}
           onClick={handleSortByPriority}
         />
