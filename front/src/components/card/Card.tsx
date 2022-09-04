@@ -1,8 +1,11 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
 import { nanoid } from 'nanoid'
 
+import { changeHistory } from '../../redux/slice/tasksSlice'
 import { convertDateTime } from '../../utils/changeDate'
+import { ITasks } from '../../interface/ITasks'
 import { CardWrapper } from './styleTasksCard'
 import CorrectImg from '../../assets/images/correct.png'
 import DeleteImg from '../../assets/images/delete.png'
@@ -16,7 +19,14 @@ function Card({
   status,
   updatedAt,
 }): JSX.Element {
+  const dispatch = useDispatch()
+  const { allTasks } = useSelector((state: any) => state.tasks)
   const arrStatus = ['Pendente', 'Em andamento', 'Completo']
+
+  const hendleHistory = (id: string) => {
+    const history = allTasks.filter((task: ITasks) => task._id === id)
+    dispatch(changeHistory(history[0]))
+  }
 
   return (
     <CardWrapper key={id + key}>
@@ -62,7 +72,7 @@ function Card({
                     <option
                       key={ nanoid() }
                       value={ stat }
-                      selected={ stat === status }
+                      selected={stat === status}
                     >
                       { stat }
                     </option>
@@ -80,7 +90,11 @@ function Card({
           <p>Atualizada:</p>
           <p>{convertDateTime(updatedAt)}</p>
         </span>
-        <button type="button" className="historyTask">
+        <button
+          type="button"
+          className="historyTask"
+          onClick={ () => hendleHistory(id) }
+        >
           Histórico de atualizações
         </button>
       </div>
