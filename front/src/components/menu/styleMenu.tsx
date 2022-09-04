@@ -12,6 +12,10 @@ export const MenuWrapper = styled.section`
       width: 100%;
       height: 140px;
 
+      #imgVoltar {
+        cursor: pointer;
+      }
+
       .sortTodoList {
         width: 100%;
         height: 100px;
@@ -20,7 +24,7 @@ export const MenuWrapper = styled.section`
         margin-bottom: 10px;
 
         background-color: #c9f3c9;
-        box-shadow: 1px 1px 5px 1px #e0cd7c;
+        box-shadow: 1px 1px 5px 2px #e0cd7c;
 
         display: flex;
         flex-direction: column;
@@ -44,6 +48,10 @@ export const MenuWrapper = styled.section`
       width: 100%;
       height: 160px;
 
+      #imgVoltar {
+        cursor: pointer;
+      }
+
       .sortTodoList {
         width: 100%;
         height: 100px;
@@ -52,7 +60,7 @@ export const MenuWrapper = styled.section`
         margin-bottom: 10px;
 
         background-color: #c9f3c9;
-        box-shadow: 1px 1px 5px 1px #e0cd7c;
+        box-shadow: 1px 1px 5px 2px #e0cd7c;
 
         display: flex;
         flex-direction: column;
@@ -76,6 +84,10 @@ export const MenuWrapper = styled.section`
       width: 100%;
       height: 160px;
 
+      #imgVoltar {
+        cursor: pointer;
+      }
+
       .sortTodoList {
         width: 100%;
         height: 100px;
@@ -84,7 +96,7 @@ export const MenuWrapper = styled.section`
         margin-bottom: 10px;
 
         background-color: #c9f3c9;
-        box-shadow: 1px 1px 5px 1px #e0cd7c;
+        box-shadow: 1px 1px 5px 2px #e0cd7c;
 
         .sort {
           display: flex;
@@ -103,6 +115,10 @@ export const MenuWrapper = styled.section`
       width: 100%;
       height: 160px;
 
+      #imgVoltar {
+        cursor: pointer;
+      }
+
       .sortTodoList {
         width: 100%;
         height: 160px;
@@ -111,7 +127,7 @@ export const MenuWrapper = styled.section`
         margin-bottom: 10px;
 
         background-color: #c9f3c9;
-        box-shadow: 1px 1px 5px 1px #e0cd7c;
+        box-shadow: 1px 1px 5px 2px #e0cd7c;
 
         .sort {
           display: flex;
