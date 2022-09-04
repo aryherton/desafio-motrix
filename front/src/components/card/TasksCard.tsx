@@ -2,14 +2,15 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { nanoid } from 'nanoid'
 
-import { TasksWrapper, CardWrapper } from './styleTasksCard'
+import Card from './Card'
+import TasksHistoryCard from './TasksHistoryCard'
+import { TasksWrapper } from './styleTasksCard'
 import { ITasks } from '../../interface/ITasks'
 import { changeFilterTasks } from '../../redux/slice/tasksSlice'
-import Card from './Card'
 
 function TasksCard(): JSX.Element {
   const dispatch = useDispatch()
-  const { allTasks, filterTasks } = useSelector((state: any) => state.tasks)
+  const { allTasks, filterTasks, historyTasks } = useSelector((state: any) => state.tasks)
   const { searchPriority, searchText } = useSelector((state: any) => state.filterSearch)
 
   const handleArrTasks = () => {
@@ -36,24 +37,37 @@ function TasksCard(): JSX.Element {
   }
 
   useEffect(() => {
-    handleArrTasks()
-  }, [searchPriority, allTasks, searchText])
+      handleArrTasks()
+    },
+    [
+      searchPriority,
+      allTasks,
+      searchText,
+      historyTasks,
+    ]
+  )
 
   return (
     <TasksWrapper id="sectionCardsTasks">
-      {filterTasks?.map((task: ITasks) => {
-        return (
-          <Card
-            key={ nanoid() }
-            id={ task._id }
-            title={ task.title }
-            description={ task.description }
-            priority={ task.priority }
-            status={ task.status }
-            updatedAt={ task.updatedAt }
-          />
-        )
-      })}
+      {
+        historyTasks
+          ? (<TasksHistoryCard task={ historyTasks } />)
+          : (
+            filterTasks?.map((task: ITasks) => {
+              return (
+                <Card
+                  key={nanoid()}
+                  id={task._id}
+                  title={task.title}
+                  description={task.description}
+                  priority={task.priority}
+                  status={task.status}
+                  updatedAt={task.updatedAt}
+                />
+              )
+            })
+          )
+      }
     </TasksWrapper>
   )
 }
