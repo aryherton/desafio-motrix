@@ -18,7 +18,7 @@ export const CardWrapper = styled.div`
       align-items: center;
 
       width: 95%;
-      height: 20%;
+      height: 25%;
 
       margin: 10px 0;
 
@@ -203,8 +203,8 @@ export const CardWrapper = styled.div`
         align-items: center;
         justify-content: center;
 
-        width: 90%;
-        height: 300px;
+        width: 95%;
+        height: 30%;
 
         margin: 10px 0;
 
