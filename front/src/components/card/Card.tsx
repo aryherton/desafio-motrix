@@ -62,7 +62,7 @@ function Card({
                     <option
                       key={ nanoid() }
                       value={ stat }
-                      selected = { stat === status }
+                      selected={ stat === status }
                     >
                       { stat }
                     </option>
