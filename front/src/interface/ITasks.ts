@@ -3,7 +3,7 @@ export interface ITasks {
   title: String,
   description: String,
   status: String,
-  priority: String,
+  priority?: String,
   historyUpdate?: [
     {
       title: String,
@@ -13,7 +13,7 @@ export interface ITasks {
       updatedAt: Date,
     },
   ],
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt?: Date,
+  updatedAt?: Date,
   __v: Number,
 }
