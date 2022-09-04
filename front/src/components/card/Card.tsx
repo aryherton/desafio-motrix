@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { nanoid } from 'nanoid'
 
 import { convertDateTime } from '../../utils/changeDate'
 import { CardWrapper } from './styleTasksCard'
@@ -56,15 +57,17 @@ function Card({
             id={`status_${status}`}>
             <optgroup>
               {
-                arrStatus.map((status, index) => (
-                  <option
-                    value={status}
-                    key={index}
-                    selected={status === status}
-                  >
-                    {status}
-                  </option>
-                ))
+                arrStatus.map((stat) => {
+                  return (
+                    <option
+                      key={ nanoid() }
+                      value={ stat }
+                      selected = { stat === status }
+                    >
+                      { stat }
+                    </option>
+                  )
+                })
               }
             </optgroup>
           </select>
