@@ -57,7 +57,7 @@ function Card({
             id={`status_${status}`}>
             <optgroup>
               {
-                arrStatus.map((stat) => {
+                arrStatus.map((stat: string) => {
                   return (
                     <option
                       key={ nanoid() }
