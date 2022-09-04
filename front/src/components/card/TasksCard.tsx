@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { nanoid } from 'nanoid'
 
 import { TasksWrapper, CardWrapper } from './styleTasksCard'
 import { ITasks } from '../../interface/ITasks'
@@ -40,17 +41,16 @@ function TasksCard(): JSX.Element {
 
   return (
     <TasksWrapper id="sectionCardsTasks">
-      {filterTasks?.map((task: ITasks, index: number) => {
-        const arrStatus = ['Pendente', 'Em andamento', 'Completo']
+      {filterTasks?.map((task: ITasks) => {
         return (
           <Card
-            key={index}
-            id={task._id}
-            title={task.title}
-            description={task.description}
-            priority={task.priority}
-            status={task.status}
-            updatedAt={task.updatedAt}
+            key={ nanoid() }
+            id={ task._id }
+            title={ task.title }
+            description={ task.description }
+            priority={ task.priority }
+            status={ task.status }
+            updatedAt={ task.updatedAt }
           />
         )
       })}
