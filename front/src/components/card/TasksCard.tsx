@@ -56,7 +56,7 @@ function TasksCard(): JSX.Element {
             filterTasks?.map((task: ITasks) => {
               return (
                 <Card
-                  key={nanoid()}
+                  key={ nanoid() }
                   id={task._id}
                   title={task.title}
                   description={task.description}
