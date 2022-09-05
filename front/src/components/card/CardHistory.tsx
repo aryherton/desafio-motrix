@@ -15,6 +15,9 @@ function CardHistory({
   status,
   updatedAt,
 }): JSX.Element {
+  const parser = new DOMParser()
+  const html = parser.parseFromString(description, 'text/html')
+  const text = html.body.textContent || ''
 
   return (
     <CardHistoryWrapper key={id + key}>
@@ -24,7 +27,7 @@ function CardHistory({
             <p>{title}</p>
           </div>
           <div className="txtTask">
-            <p>{description}</p>
+            <p>{text}</p>
           </div>
         </div>
       </div>
