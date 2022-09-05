@@ -87,9 +87,7 @@ export const delteTasks = async (endPoint: string, body: IArrIdDelete, token: st
     data: body,
   }
   try {
-    const data = await api.delete(endPoint, config);
-
-    return data;
+    await api.delete(endPoint, config);
   } catch (error) {
     return error.response.status;
   }
