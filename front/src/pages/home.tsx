@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Header from '../components/header/Header'
 import Menu from '../components/menu/Menu'
 import { HomeWrapper } from '../styles/pagesStyle/styledHome'
-import { getDatas } from '../utils/api'
+import { getDatas, delteTasks } from '../utils/api'
 import { changeAllTasks } from '../redux/slice/tasksSlice'
 import TasksCard from '../components/card/TasksCard'
 import FormTasks from '../components/formTasks/FormTasks'
@@ -13,6 +13,19 @@ import FormTasks from '../components/formTasks/FormTasks'
 function Home(): JSX.Element {
   const dispatch = useDispatch()
   const { addTask } = useSelector((state: any) => state.filterSearch)
+
+  const handleDelete = async () => {
+    const { token } = JSON.parse(localStorage.getItem('user'))
+    const arrIdDelete = JSON.parse(localStorage.getItem('arrIdDelete'))
+
+    if (arrIdDelete && (token && arrIdDelete.length > 0)) {
+      const data = await delteTasks('message', arrIdDelete, token)
+      console.log(data);
+
+    } else {
+        alert('Marque uma tarefa para deletar')
+    }
+  }
 
   useEffect(() => {
     const userStorage = JSON.parse(localStorage.getItem('user'))
@@ -32,6 +45,14 @@ function Home(): JSX.Element {
       <Header />
       <main>
         <Menu />
+        <div id="buttonDelete">
+          <button
+            type="button"
+            onClick={ handleDelete }
+          >
+            Deletar
+          </button>
+        </div>
         {
           addTask === true ? (<FormTasks />) : (<TasksCard />)
         }
