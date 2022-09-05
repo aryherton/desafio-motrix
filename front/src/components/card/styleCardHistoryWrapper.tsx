@@ -16,7 +16,7 @@ export const CardHistoryWrapper = styled.div`
 
       margin: 10px 0;
 
-      background-color: #b9d7be;
+      background-color: #b9d7c8;
       /* border-left: 10px solid #30ee39; */
       border-radius: 15px;
 
@@ -26,7 +26,7 @@ export const CardHistoryWrapper = styled.div`
 
         color: #12318e;
 
-        background-color: #e5bc4d;
+        background-color: #dccfaa;
         border-radius: 9px 9px 3px 3px;
 
         width: 100%;
@@ -57,6 +57,8 @@ export const CardHistoryWrapper = styled.div`
 
             p {
               font-size: 12px;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         }
@@ -106,328 +108,325 @@ export const CardHistoryWrapper = styled.div`
           font-size: 12px;
         }
       }
-    }
   }
 
-  /* >>>>>>> @media min-width: 481px max-width: 768px <<<<<<< */
-  @media screen {
-    @media (
-      min-width: 481px
-      ) and (max-width: 768px) {
+  @media (
+    min-width: 481px
+    ) and (max-width: 768px) {
         display: flex;
-        flex-direction: column;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 95%;
+      height: 50%;
+
+      margin: 10px 0;
+
+      background-color: #b9d7c8;
+      /* border-left: 10px solid #30ee39; */
+      border-radius: 15px;
+
+      .main_info {
+        display: flex;
         align-items: center;
-        justify-content: center;
 
-        width: 95%;
-        height: 50%;
+        color: #12318e;
 
-        margin: 10px 0;
+        background-color: #dccfaa;
+        border-radius: 9px 9px 3px 3px;
 
-        background-color: #b9d7be;
-        /* border-left: 10px solid #30ee39; */
-        border-radius: 15px;
+        width: 100%;
+        height: 100px;
 
-        .main_info {
-          display: flex;
-          align-items: center;
-
-          color: #12318e;
-
-          background-color: #e5bc4d;
-          border-radius: 9px 9px 3px 3px;
-
-          width: 100%;
-          height: 100px;
-
-          .titleAndTxt {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            width: 70%;
-            height: 100%;
-
-            .titleTask {
-              margin-left: 15px;
-              font-size: 16px;
-              font-weight: 600;
-
-              margin-top: 2%;
-            }
-
-            .txtTask {
-              width: 100%;
-              height: 100%;
-
-              margin: 2% 8%;
-              color: #000000;
-
-              p {
-                font-size: 12px;
-              }
-            }
-          }
-        }
-
-        .datas_info {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          color: #4d2103;
-
-          width: 80%;
-          height: 25%;
-
-          .statusTask {
-            width: 50%;
-            height: 80%;
-
-            text-align: center;
-            color: #483b06;
-            font-size: 12px;
-          }
-
-          .dateTask {
-            width: 50%;
-            height: 70%;
-
-            color: #483b06;
-            text-align: center;
-
-            p {
-              font-size: 10px;
-            }
-          }
-
-          .historyTask {
-            width: 20%;
-            height: 100%;
-
-            color: #4d2103;
-
-            background: none;
-            border: none;
-            cursor: pointer;
-
-            font-size: 12px;
-          }
-        }
-      }
-    }
-
-    /* >>>>>>> @media min-width: 769px max-width: 1279px <<<<<<< */
-    @media screen {
-      @media (
-        min-width: 769px
-        ) and (max-width: 1279px) {
+        .titleAndTxt {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
+          justify-content: space-between;
 
-          width: 95%;
-          height: 50%;
+          width: 70%;
+          height: 100%;
 
-          margin: 10px 0;
+          .titleTask {
+            margin-left: 15px;
+            font-size: 16px;
+            font-weight: 600;
 
-          background-color: #b9d7c8;
-          /* border-left: 10px solid #30ee39; */
-          border-radius: 15px;
-
-          .main_info {
-            display: flex;
-            align-items: center;
-
-            color: #12318e;
-
-            background-color: #dccfaa;
-            border-radius: 9px 9px 3px 3px;
-
-            width: 100%;
-            height: 100px;
-
-            .titleAndTxt {
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-
-              width: 70%;
-              height: 100%;
-
-              .titleTask {
-                margin-left: 15px;
-                font-size: 16px;
-                font-weight: 600;
-
-                margin-top: 2%;
-              }
-
-              .txtTask {
-                width: 100%;
-                height: 100%;
-
-                margin: 2% 8%;
-                color: #000000;
-
-                p {
-                  font-size: 12px;
-                }
-              }
-            }
+            margin-top: 2%;
           }
 
-          .datas_info {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+          .txtTask {
+            width: 100%;
+            height: 100%;
 
-            color: #4d2103;
+            margin: 2% 8%;
+            color: #000000;
 
-            width: 80%;
-            height: 25%;
-
-            .statusTask {
-              width: 50%;
-              height: 80%;
-
-              text-align: center;
-              color: #483b06;
+            p {
               font-size: 12px;
-            }
-
-            .dateTask {
-              width: 50%;
-              height: 70%;
-
-              color: #483b06;
-              text-align: center;
-
-              p {
-                font-size: 10px;
-              }
-            }
-
-            .historyTask {
-              width: 20%;
-              height: 100%;
-
-              color: #4d2103;
-
-              background: none;
-              border: none;
-              cursor: pointer;
-
-              font-size: 12px;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
           }
         }
       }
 
-      /* >>>>>>> @media min-width: 1279px <<<<<<< */
-
-      @media (min-width: 1279px) {
+      .datas_info {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
 
-        width: 95%;
-        height: 50%;
+        color: #4d2103;
 
-        margin: 10px 0;
+        width: 80%;
+        height: 25%;
 
-        background-color: #b9d7be;
-        /* border-left: 10px solid #30ee39; */
-        border-radius: 15px;
+        .statusTask {
+          width: 50%;
+          height: 80%;
 
-        .main_info {
-          display: flex;
-          align-items: center;
+          text-align: center;
+          color: #483b06;
+          font-size: 12px;
+        }
 
-          color: #12318e;
+        .dateTask {
+          width: 50%;
+          height: 70%;
 
-          background-color: #e5bc4d;
-          border-radius: 9px 9px 3px 3px;
+          color: #483b06;
+          text-align: center;
 
-          width: 100%;
-          height: 100px;
-
-          .titleAndTxt {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            width: 70%;
-            height: 100%;
-
-            .titleTask {
-              margin-left: 15px;
-              font-size: 16px;
-              font-weight: 600;
-
-              margin-top: 2%;
-            }
-
-            .txtTask {
-              width: 100%;
-              height: 100%;
-
-              margin: 2% 8%;
-              color: #000000;
-
-              p {
-                font-size: 12px;
-              }
-            }
+          p {
+            font-size: 10px;
           }
         }
 
-        .datas_info {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+        .historyTask {
+          width: 20%;
+          height: 100%;
 
           color: #4d2103;
 
-          width: 80%;
-          height: 25%;
+          background: none;
+          border: none;
+          cursor: pointer;
 
-          .statusTask {
-            width: 50%;
-            height: 80%;
+          font-size: 12px;
+        }
+      }
+  }
 
-            text-align: center;
-            color: #483b06;
-            font-size: 12px;
+  @media (
+    min-width: 769px
+    ) and (max-width: 1279px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 95%;
+      height: 50%;
+
+      margin: 10px 0;
+
+      background-color: #b9d7c8;
+      /* border-left: 10px solid #30ee39; */
+      border-radius: 15px;
+
+      .main_info {
+        display: flex;
+        align-items: center;
+
+        color: #12318e;
+
+        background-color: #dccfaa;
+        border-radius: 9px 9px 3px 3px;
+
+        width: 100%;
+        height: 100px;
+
+        .titleAndTxt {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          width: 70%;
+          height: 100%;
+
+          .titleTask {
+            margin-left: 15px;
+            font-size: 16px;
+            font-weight: 600;
+
+            margin-top: 2%;
           }
 
-          .dateTask {
-            width: 50%;
-            height: 70%;
-
-            color: #483b06;
-            text-align: center;
-
-            p {
-              font-size: 10px;
-            }
-          }
-
-          .historyTask {
-            width: 20%;
+          .txtTask {
+            width: 100%;
             height: 100%;
 
-            color: #4d2103;
+            margin: 2% 8%;
+            color: #000000;
 
-            background: none;
-            border: none;
-            cursor: pointer;
-
-            font-size: 12px;
+            p {
+              font-size: 12px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
           }
         }
       }
 
-      `
+      .datas_info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: #4d2103;
+
+        width: 80%;
+        height: 25%;
+
+        .statusTask {
+          width: 50%;
+          height: 80%;
+
+          text-align: center;
+          color: #483b06;
+          font-size: 12px;
+        }
+
+        .dateTask {
+          width: 50%;
+          height: 70%;
+
+          color: #483b06;
+          text-align: center;
+
+          p {
+            font-size: 10px;
+          }
+        }
+
+        .historyTask {
+          width: 20%;
+          height: 100%;
+
+          color: #4d2103;
+
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          font-size: 12px;
+        }
+      }
+  }
+
+  @media (min-width: 1279px) {
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 95%;
+      height: 50%;
+
+      margin: 10px 0;
+
+      background-color: #b9d7c8;
+      /* border-left: 10px solid #30ee39; */
+      border-radius: 15px;
+
+      .main_info {
+        display: flex;
+        align-items: center;
+
+        color: #12318e;
+
+        background-color: #dccfaa;
+        border-radius: 9px 9px 3px 3px;
+
+        width: 100%;
+        height: 100px;
+
+        .titleAndTxt {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          width: 70%;
+          height: 100%;
+
+          .titleTask {
+            margin-left: 15px;
+            font-size: 16px;
+            font-weight: 600;
+
+            margin-top: 2%;
+          }
+
+          .txtTask {
+            width: 100%;
+            height: 100%;
+
+            margin: 2% 8%;
+            color: #000000;
+
+            p {
+              font-size: 12px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+
+      .datas_info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        color: #4d2103;
+
+        width: 80%;
+        height: 25%;
+
+        .statusTask {
+          width: 50%;
+          height: 80%;
+
+          text-align: center;
+          color: #483b06;
+          font-size: 12px;
+        }
+
+        .dateTask {
+          width: 50%;
+          height: 70%;
+
+          color: #483b06;
+          text-align: center;
+
+          p {
+            font-size: 10px;
+          }
+        }
+
+        .historyTask {
+          width: 20%;
+          height: 100%;
+
+          color: #4d2103;
+
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          font-size: 12px;
+        }
+      }
+  }
+}
+`
