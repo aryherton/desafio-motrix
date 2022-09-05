@@ -1,10 +1,19 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-import { ITasks } from '../interface/ITasks';
-import { IUser } from '../interface/IUser';
+import { ITasks } from '../interface/ITasks'
+import { IUser } from '../interface/IUser'
+import { IBodyByDate } from './interface/IBodyByDate'
+import { IArrIdDelete } from './interface/IArrIdDelete'
+
+// const api = axios.create({
+//   baseURL: `https://desafio-motrix.herokuapp.com/`,
+// });
 
 const api = axios.create({
-  baseURL: `https://desafio-motrix.herokuapp.com/`,
+  baseURL: `http://localhost:3005`,
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+  },
 });
 
 type GetToken = {
@@ -52,22 +61,30 @@ export const getDatas = async (endPoint: string, token: string): Promise<IUser> 
   return cartProduct;
 }
 
-export const getSortByDate = async (endPoint: string, body: any, token: string) => {
-  console.log(body)
-
-  api.defaults.headers.common['Authorization'] = token;
-  const data = await api.get(endPoint, body)
+export const getSortByDate = async (endPoint: string, body: IBodyByDate, token: string) => {
+  const config: AxiosRequestConfig = {
+    headers: {
+      'Authorization': token,
+      'Content-Type': 'application/json',
+    },
+    data: body,
+  };
+  const data = await api.post(endPoint, config)
     .then((resp) => resp.data);
 
   return data;
 }
 
-export const delteTasks = async (endPoint: string, body, token: string) => {
+export const delteTasks = async (endPoint: string, body: IArrIdDelete, token: string) => {
+  const config: AxiosRequestConfig = {
+    headers: {
+        'Authorization': token,
+        'Content-Type': 'application/json',
+    },
+    data: body,
+  }
   try {
-    api.defaults.headers.common['Authorization'] = token;
-    // api.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
-    api.defaults.headers.common['Content-Type'] = 'application/json';
-    const data = await api.delete(endPoint, body);
+    const data = await api.delete(endPoint, config);
 
     return data;
   } catch (error) {
