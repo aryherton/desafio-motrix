@@ -52,4 +52,27 @@ export const getDatas = async (endPoint: string, token: string): Promise<IUser> 
   return cartProduct;
 }
 
+export const getSortByDate = async (endPoint: string, body: any, token: string) => {
+  console.log(body)
+
+  api.defaults.headers.common['Authorization'] = token;
+  const data = await api.get(endPoint, body)
+    .then((resp) => resp.data);
+
+  return data;
+}
+
+export const delteTasks = async (endPoint: string, body, token: string) => {
+  try {
+    api.defaults.headers.common['Authorization'] = token;
+    // api.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
+    api.defaults.headers.common['Content-Type'] = 'application/json';
+    const data = await api.delete(endPoint, body);
+
+    return data;
+  } catch (error) {
+    return error.response.status;
+  }
+}
+
 export default api;
