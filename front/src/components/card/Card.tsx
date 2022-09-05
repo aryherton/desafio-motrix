@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid'
 
 import { changeHistory } from '../../redux/slice/tasksSlice'
 import { convertDateTime } from '../../utils/changeDate'
+import { arrStatus } from '../../utils/arrStatus'
 import { ITasks } from '../../interface/ITasks'
 import { CardWrapper } from './styleTasksCard'
 import CorrectImg from '../../assets/images/correct.png'
@@ -21,7 +22,6 @@ function Card({
 }): JSX.Element {
   const dispatch = useDispatch()
   const { allTasks } = useSelector((state: any) => state.tasks)
-  const arrStatus = ['Pendente', 'Em andamento', 'Completo']
 
   const hendleHistory = (id: string) => {
     const history = allTasks.filter((task: ITasks) => task._id === id)
