@@ -34,8 +34,14 @@ export const registerUser = async (endPoint: string, body: IUser): Promise<strin
 };
 
 export const setTasks = async (endPoint: string, body: ITasks, token: string) => {
-  api.defaults.headers.common['Authorization'] = token;
-  await api.post(endPoint, body);
+  try {
+    api.defaults.headers.common['Authorization'] = token;
+    const data = await api.post(endPoint, body);
+
+    return data;
+  } catch (error) {
+    return error.response.status;
+  }
 }
 
 export const getDatas = async (endPoint: string, token: string): Promise<IUser> => {
