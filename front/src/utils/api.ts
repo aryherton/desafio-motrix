@@ -5,16 +5,19 @@ import { IUser } from '../interface/IUser'
 import { IBodyByDate } from './interface/IBodyByDate'
 import { IArrIdDelete } from './interface/IArrIdDelete'
 
-// const api = axios.create({
-//   baseURL: `https://desafio-motrix.herokuapp.com/`,
-// });
-
 const api = axios.create({
-  baseURL: `http://localhost:3005`,
+  baseURL: `https://desafio-motrix.herokuapp.com/`,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
 });
+
+// const api = axios.create({
+//   baseURL: `http://localhost:3005`,
+//   headers: {
+//     'X-Requested-With': 'XMLHttpRequest',
+//   },
+// });
 
 type GetToken = {
   token: string;
