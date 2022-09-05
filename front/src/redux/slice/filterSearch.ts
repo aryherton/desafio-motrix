@@ -7,6 +7,7 @@ export const slice = createSlice({
     searchDate: 'asc',
     searchPriority: 'all',
     searchText: '',
+    addTask: false,
   },
 
   reducers: {
@@ -22,6 +23,9 @@ export const slice = createSlice({
     changeSearchText: (state, { payload }) => {
       return { ...state, searchText: payload };
     },
+    changeAddTask: (state, { payload }) => {
+      return { ...state, addTask: payload };
+    }
   },
 })
 
@@ -30,11 +34,13 @@ export const {
   changeSearchDate,
   changeSearchText,
   changeSearchPriority,
+  changeAddTask,
 } = slice.actions;
 
 export const selectFilterSearch = (state: { isChecked: any; }) => state.isChecked;
 export const selectFilterDate = (state: { searchDate: any; }) => state.searchDate;
 export const selectFilterSearchPriority = (state: { searchPriority: any; }) => state.searchPriority;
 export const selectFilterSearchText = (state: { searchText: any; }) => state.searchText;
+export const selectAddTask = (state: { addTask: any; }) => state.addTask;
 
 export default slice.reducer;
