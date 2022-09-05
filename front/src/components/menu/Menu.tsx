@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useSelector, useDispatch } from 'react-redux'
 
 import Search from '../search/Search'
-import SortByDate from '../sort/SortByDate'
+import AddTaks from '../sort/AddTask'
 import SortByPriority from '../sort/SortByPriority'
 import { MenuWrapper } from './styleMenu'
 import { changeHistory } from '../../redux/slice/tasksSlice'
@@ -29,7 +29,7 @@ function Menu(): JSX.Element {
       }
       <div className="sortTodoList">
         <div className="sort">
-          <SortByDate />
+          <AddTaks />
           <SortByPriority />
         </div>
       </div>
