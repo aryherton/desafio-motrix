@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SortDateWrapper = styled.div`
+export const AddTaskWrapper = styled.div`
 @media screen {
   @media ( min-width: 50px ) and ( max-width: 480px ) {
     display: flex;
