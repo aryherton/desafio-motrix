@@ -19,8 +19,10 @@ function Home(): JSX.Element {
     const arrIdDelete = JSON.parse(localStorage.getItem('arrIdDelete'))
 
     if (arrIdDelete && (token && arrIdDelete.length > 0)) {
-      const data = await delteTasks('message', arrIdDelete, token)
-      console.log(data);
+      await delteTasks('message', arrIdDelete, token)
+      const userStorage = JSON.parse(localStorage.getItem('user'))
+      const user = await getDatas('user/message', userStorage.token)
+      dispatch(changeAllTasks(user.arrMessage))
 
     } else {
         alert('Marque uma tarefa para deletar')
