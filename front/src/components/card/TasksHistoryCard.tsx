@@ -1,14 +1,34 @@
-import React from 'react'
-import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { nanoid } from 'nanoid'
 
 import Card from './Card'
 import CardHistory from './CardHistory'
+import SortByDate from '../sort/SortByDate'
+import { getSortByDate } from '../../utils/api'
 import { TasksHistoryCardWrapper } from './styleTasksHistoryCard'
-import Voltar from '../../assets/images/voltar.png'
 
 function TasksHistoryCard({ task }): JSX.Element {
-  console.log(task.historyUpdate.length);
+  const [taskHistory, setTaskHistory] = useState([])
+  const { searchDate } = useSelector((state: any) => state.filterSearch)
+
+  useEffect(() => {
+    if (searchDate) {
+      (async () => {
+        const body = {
+          typeSort: searchDate,
+        }
+        const { token } = await JSON.parse(localStorage.getItem('user'))
+        const { message } = await getSortByDate(`message/${task._id}`, body, token)
+
+        if (message.length > 0) {
+          setTaskHistory(message[0].historyUpdate)
+        }
+      })()
+    } else {
+      setTaskHistory(task.historyUpdate)
+    }
+  }, [searchDate])
 
   return (
     <TasksHistoryCardWrapper>
@@ -25,9 +45,10 @@ function TasksHistoryCard({ task }): JSX.Element {
         Histórico de atualizações
       </p>
       <div id="historyCard">
+        <SortByDate />
         {
-          task.historyUpdate.length > 0
-            ? task.historyUpdate.map((hist: any) => (
+          taskHistory && taskHistory.length > 0
+            ? taskHistory.map((hist: any) => (
                 <CardHistory
                   key={nanoid()}
                   id={hist._id}
