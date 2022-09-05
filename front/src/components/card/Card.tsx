@@ -23,9 +23,30 @@ function Card({
   const dispatch = useDispatch()
   const { allTasks } = useSelector((state: any) => state.tasks)
 
+  const parser = new DOMParser()
+  const html = parser.parseFromString(description, 'text/html')
+  const text = html.body.textContent || ''
+
   const hendleHistory = (id: string) => {
     const history = allTasks.filter((task: ITasks) => task._id === id)
     dispatch(changeHistory(history[0]))
+  }
+
+  const handleDelete = ({ target }, id: string) => {
+    if (target.checked) {
+      const arrIdDelete = JSON.parse(localStorage.getItem('arrIdDelete'))
+
+      if (arrIdDelete) {
+        arrIdDelete.push(id)
+        localStorage.setItem('arrIdDelete', JSON.stringify(arrIdDelete))
+      } else {
+        localStorage.setItem('arrIdDelete', JSON.stringify([id]))
+      }
+    } else {
+      let arrIdDelete = JSON.parse(localStorage.getItem('arrIdDelete'))
+      const index = arrIdDelete.filter((item: string) => item !== id)
+      localStorage.setItem('arrIdDelete', JSON.stringify(index))
+    }
   }
 
   return (
@@ -39,7 +60,7 @@ function Card({
             <p>{title}</p>
           </div>
           <div className="txtTask">
-            <p>{description}</p>
+            <p>{text}</p>
           </div>
         </div>
         <div className="menuTask">
@@ -47,8 +68,12 @@ function Card({
             Editar
           </button>
           <div className="delete">
-            <input type="checkbox" id={`${key} checkDelet`} />
-            <label htmlFor={`${key} checkDelet`} id="delete">
+            <input
+              type="checkbox"
+              id={`${key} ${id}`}
+              onClick={() => handleDelete(event, id) }
+            />
+            <label htmlFor={`${key} ${id}`} id="delete">
               <Image
                 src={DeleteImg}
                 alt="delete"
@@ -71,8 +96,9 @@ function Card({
                   return (
                     <option
                       key={ nanoid() }
-                      value={ stat }
+                      // value={ stat }
                       selected={stat === status}
+                      defaultValue={ stat }
                     >
                       { stat }
                     </option>
