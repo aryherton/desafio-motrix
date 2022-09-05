@@ -26,6 +26,21 @@ export default class MessageModel {
       return message;
     }
   };
+  
+  async getHistorySort(id: string, sortType: string): Promise<IMessage[] | void> {
+    const _id = new mongoose.Types.ObjectId(id);
+    const typeSort = sortType === 'asc' ? 1 : -1;
+    const message = await this.model.aggregate([
+      { $match: { _id } },
+      { $unwind: '$historyUpdate' },
+      { $sort: { 'historyUpdate.updatedAt': typeSort } },
+      { $group: { _id: '$_id', historyUpdate: { $push: '$historyUpdate' } } },
+    ]);
+
+    if (message) {
+      return message;
+    }
+  };
 
   async updateMessage(id: string, message: IMessage): Promise<void> {
     const _id = new mongoose.Types.ObjectId(id);

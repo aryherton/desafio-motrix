@@ -21,7 +21,7 @@ export default class UserCtrll {
       const checkUser = await this.userServ.getUserByEmail(email);
 
       if (checkUser) {
-        return res.status(StatusHttp.UNAUTHORIZED).json({ message: MessagesRes.ALREADY_REGISTERED });
+        return res.status(StatusHttp.CONFLICT).json({ message: MessagesRes.ALREADY_REGISTERED });
       }
       const token = await this.userServ.insertUser({ name, email, password });
 

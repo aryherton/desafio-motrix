@@ -24,6 +24,12 @@ export default class Message {
     return message;
   };
   
+  async getHistorySortByUpdateAt(id: string, typeSort: string): Promise<IMessage[] | void> {
+    const message = await this.messageModel.getHistorySort(id, typeSort);
+
+    return message;
+  };
+
   async updateMessage(id: string, newMessage: IMessage): Promise<void> {
     const message = await this.getMessage(id);
 
@@ -43,7 +49,7 @@ export default class Message {
     }
   };
 
-  async deleteMessage(arrMessDel: string[]): Promise<void> {    
+  async deleteMessage(arrMessDel: string[]): Promise<void> {  
     await Promise.all(arrMessDel.map(async (id: string) => {
       await this.messageModel.deleteMessage(id);
     }));

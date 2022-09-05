@@ -9,7 +9,7 @@ export default new Schema<IMessage>(
   title: String,
   description: String,
   status: String,
-  priority: Number,
+  priority: String,
   historyUpdate: [
     {
       title: String,
