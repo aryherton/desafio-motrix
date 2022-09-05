@@ -31,6 +31,28 @@ export default class MessageCtrll {
         return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
     }
   };
+  
+  async getHistorySortCtrll(req: Request, res: Response) {
+    try {
+      const { authorization } = req.headers;
+      const { id } = req.params;
+      const { data: { typeSort } } = req.body;
+      
+
+      if (authorization) {
+        Token.validToken(authorization) as JwtPayload;
+        const messageServ = new MessageServ();
+        const message = await messageServ.getHistorySortByUpdateAt(id, typeSort);
+
+        return res.status(StatusHttp.OK).json({ message });
+      }
+
+      return res.status(StatusHttp.NO_CONTENT).json({ message: Messages.NOT_TOKEN });
+    } catch(e) {
+      console.log(e);
+      return res.status(StatusHttp.SERVER_ERROR).json({ message: Messages.ERROR_SERVER });
+    }
+  };
 
   async updateMessageCtrll(req: Request, res: Response) {
     try {
