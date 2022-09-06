@@ -129,27 +129,24 @@ export const CardWrapper = styled.div`
         height: 15%;
 
         .statusTask {
-          width: 20%;
-          height: 90%;
+              display: flex;
+              flex-direction: column;
+              width: 20%;
+              height: 70%;
 
-          .selectStatus {
-            width: 100%;
-            height: 100%;
+              .txtStatus {
+                font-size: 12px;
+                text-align: center;
+                width: 100%;
+              }
 
-            color: #04244a;
-            font-weight: 500;
-            text-align: center;
-
-            background-color: #FBB282;
-            border: none;
-            font-size: 14px;
-            border-radius: 10px;
-
-            input {
-              line-height: 50px;
+              .valueStatus {
+                font-size: 12px;
+                font-weight: 600;
+                width: 100%;
+                text-align: center;
+              }
             }
-          }
-        }
 
         .priorityTask {
           width: 25%;
@@ -313,27 +310,24 @@ export const CardWrapper = styled.div`
           height: 15%;
 
           .statusTask {
-            width: 20%;
-            height: 70%;
+              display: flex;
+              flex-direction: column;
+              width: 20%;
+              height: 70%;
 
-            .selectStatus {
-              width: 100%;
-              height: 90%;
+              .txtStatus {
+                font-size: 12px;
+                text-align: center;
+                width: 100%;
+              }
 
-              color: #04244a;
-              font-weight: 500;
-              text-align: center;
-
-              background-color: #FBB282;
-              border: none;
-              font-size: 12px;
-              border-radius: 10px;
-
-              input {
-                line-height: 50px;
+              .valueStatus {
+                font-size: 12px;
+                font-weight: 600;
+                width: 100%;
+                text-align: center;
               }
             }
-          }
 
           .priorityTask {
             width: 25%;
@@ -496,25 +490,22 @@ export const CardWrapper = styled.div`
             height: 15%;
 
             .statusTask {
+              display: flex;
+              flex-direction: column;
               width: 20%;
               height: 70%;
 
-              .selectStatus {
-                width: 100%;
-                height: 90%;
-
-                color: #04244a;
-                font-weight: 500;
-                text-align: center;
-
-                background-color: #FBB282;
-                border: none;
+              .txtStatus {
                 font-size: 12px;
-                border-radius: 10px;
+                text-align: center;
+                width: 100%;
+              }
 
-                input {
-                  line-height: 50px;
-                }
+              .valueStatus {
+                font-size: 12px;
+                font-weight: 600;
+                width: 100%;
+                text-align: center;
               }
             }
 
@@ -677,25 +668,22 @@ export const CardWrapper = styled.div`
             height: 15%;
 
             .statusTask {
+              display: flex;
+              flex-direction: column;
               width: 20%;
               height: 70%;
 
-              .selectStatus {
-                width: 100%;
-                height: 90%;
-
-                color: #04244a;
-                font-weight: 500;
-                text-align: center;
-
-                background-color: #FBB282;
-                border: none;
+              .txtStatus {
                 font-size: 12px;
-                border-radius: 10px;
+                text-align: center;
+                width: 100%;
+              }
 
-                input {
-                  line-height: 50px;
-                }
+              .valueStatus {
+                font-size: 12px;
+                font-weight: 600;
+                width: 100%;
+                text-align: center;
               }
             }
 

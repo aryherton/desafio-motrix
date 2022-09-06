@@ -6,6 +6,7 @@ import Editor from './EditorTxt'
 import { changeTask } from '../../redux/slice/tasksSlice'
 import { arrStatus } from '../../utils/arrStatus'
 import { arrPriority } from '../../utils/arrPriority'
+import { FormTasksWrapper } from './styleFormTasks'
 
 function FormTasks(): JSX.Element {
   const dispatch = useDispatch()
@@ -24,7 +25,7 @@ function FormTasks(): JSX.Element {
   }
 
   return (
-    <div>
+    <FormTasksWrapper>
       <div id="title">
         <label htmlFor="inputTitle">
           Título
@@ -70,7 +71,7 @@ function FormTasks(): JSX.Element {
         </label>
       </div>
       <Editor />
-    </div>
+    </FormTasksWrapper>
   )
 }
 

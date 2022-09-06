@@ -9,6 +9,7 @@ function AddTask(): JSX.Element {
   const dispatch = useDispatch()
   const { addTask } = useSelector((state: any) => state.filterSearch)
   const { task } = useSelector((state: any) => state.tasks)
+
   const handleSortByDate = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const checkTask: boolean = (
       (task.title && task.description)

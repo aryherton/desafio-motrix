@@ -13,7 +13,7 @@ const api = axios.create({
 });
 
 // const api = axios.create({
-//   baseURL: `http://localhost:3005`,
+//   baseURL: `http://localhost:3005/`,
 //   headers: {
 //     'X-Requested-With': 'XMLHttpRequest',
 //   },
@@ -57,11 +57,15 @@ export const setTasks = async (endPoint: string, body: ITasks, token: string) =>
 }
 
 export const getDatas = async (endPoint: string, token: string): Promise<IUser> => {
-  api.defaults.headers.common['Authorization'] = token;
-  const cartProduct = await api.get(endPoint)
-    .then((resp) => resp.data);
+  try {
+    api.defaults.headers.common['Authorization'] = token;
+    const cartProduct = await api.get(endPoint)
+      .then((resp) => resp.data);
 
-  return cartProduct;
+    return cartProduct;
+  } catch (error) {
+    return error.response.status;
+  }
 }
 
 export const getSortByDate = async (endPoint: string, body: IBodyByDate, token: string) => {
@@ -72,10 +76,27 @@ export const getSortByDate = async (endPoint: string, body: IBodyByDate, token: 
     },
     data: body,
   };
-  const data = await api.post(endPoint, config)
-    .then((resp) => resp.data);
+  try {
+    const data = await api.post(endPoint, config)
+      .then((resp) => resp.data);
 
-  return data;
+    return data;
+  } catch (error) {
+      return error.response.status;
+  }
+}
+
+export const putUpdateTask = async (endPoint: string, body: ITasks, token: string) => {
+  try {
+    api.defaults.headers.common['Authorization'] = token;
+    const data = await api.put(endPoint, body)
+      .then((resp) => resp.data);
+
+    return data;
+  } catch (error) {
+      return error.response.status;
+  }
+
 }
 
 export const delteTasks = async (endPoint: string, body: IArrIdDelete, token: string) => {
