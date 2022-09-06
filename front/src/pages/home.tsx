@@ -42,7 +42,7 @@ function Home(): JSX.Element {
 
     (async () => {
       const user = await getDatas('user/message', userStorage.token)
-      dispatch(changeAllTasks(user.arrMessage))
+      dispatch(changeAllTasks(user.arrMessage.reverse()))
     })()
   }, [addTask, task])
 
