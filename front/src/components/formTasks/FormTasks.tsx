@@ -32,7 +32,7 @@ function FormTasks(): JSX.Element {
           <input
             type="text"
             id="inputTitle"
-            onChange={(e) => handleTitleTask(e.target.value)}
+            onChange={({ target }) => handleTitleTask(target.value)}
           />
         </label>
       </div>
@@ -43,7 +43,6 @@ function FormTasks(): JSX.Element {
             {
               arrStatus.map((status) => (
                 <option
-                  key={nanoid()}
                   value={status}
                   onClick={() => handleStatusTask(status) }
                 >
@@ -59,7 +58,6 @@ function FormTasks(): JSX.Element {
             {
               arrPriority.map((priority) => (
                 <option
-                  key={ nanoid() }
                   value={priority}
                   onClick={() => handlePriorityTask(priority) }
                 >
