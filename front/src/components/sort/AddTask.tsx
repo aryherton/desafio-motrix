@@ -8,9 +8,10 @@ import { AddTaskWrapper } from './styleAddTask';
 function AddTask(): JSX.Element {
   const dispatch = useDispatch()
   const { addTask } = useSelector((state: any) => state.filterSearch)
-  const { task } = useSelector((state: any) => state.tasks)
+  let { task, taskEdit } = useSelector((state: any) => state.tasks)
 
   const handleSortByDate = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    task = task ? { ...task, description: taskEdit.description } : {}
     const checkTask: boolean = (
       (task.title && task.description)
       && (task.status && task.priority))
