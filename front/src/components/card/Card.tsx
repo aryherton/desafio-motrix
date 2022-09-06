@@ -25,10 +25,10 @@ function Card({
   updatedAt,
 }): JSX.Element {
   const dispatch = useDispatch()
-  const [titleEdit, setTitleEdit] = useState('')
-  const [statusEdit, setStatusEdit] = useState('')
-  const [priorityEdit, setPriorityEdit] = useState('')
   const { allTasks, taskEdit } = useSelector((state: any) => state.tasks)
+  const [titleEdit, setTitleEdit] = useState(taskEdit.title)
+  const [statusEdit, setStatusEdit] = useState(taskEdit.status)
+  const [priorityEdit, setPriorityEdit] = useState(taskEdit.priority)
 
   const parser = new DOMParser()
   const html = parser.parseFromString(description, 'text/html')
@@ -115,7 +115,6 @@ function Card({
                         arrStatus.map((stat: string) => {
                           return (
                             <option
-                              key={nanoid()}
                               value={ statusEdit ? statusEdit : stat }
                               selected={statusEdit ? false : stat === status}
                               onClick={({ target }) => handleLocalState(target)}
@@ -139,7 +138,6 @@ function Card({
                         arrPriority.map((prt: string) => {
                           return (
                             <option
-                              key={nanoid()}
                               value={ priorityEdit ? priorityEdit : prt }
                               selected={priorityEdit ? false : prt === priority}
                               onClick={({target}) => handleLocalState(target)}
