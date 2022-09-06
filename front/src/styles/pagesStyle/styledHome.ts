@@ -17,7 +17,7 @@ export const HomeWrapper = styled.div`
     height: 100%;
 
     #buttonDelete {
-      width: 85%;
+      width: 75%;
       height: 40px;
       display: flex;
       justify-content: end;

@@ -11,6 +11,7 @@ import { TasksHistoryCardWrapper } from './styleTasksHistoryCard'
 function TasksHistoryCard({ task }): JSX.Element {
   const [taskHistory, setTaskHistory] = useState([])
   const { searchDate } = useSelector((state: any) => state.filterSearch)
+  const { addTask } = useSelector((state: any) => state.tasks)
 
   useEffect(() => {
     if (searchDate) {
@@ -28,7 +29,7 @@ function TasksHistoryCard({ task }): JSX.Element {
     } else {
       setTaskHistory(task.historyUpdate)
     }
-  }, [searchDate])
+  }, [searchDate, addTask])
 
   return (
     <TasksHistoryCardWrapper>

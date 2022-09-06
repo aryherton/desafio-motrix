@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
 import { changeAddTask } from '../../redux/slice/filterSearch';
+import { changeTaskEdit } from '../../redux/slice/tasksSlice';
 import { setTasks } from '../../utils/api'
 import { AddTaskWrapper } from './styleAddTask';
 
@@ -21,6 +22,7 @@ function AddTask(): JSX.Element {
         const { token } = JSON.parse(localStorage.getItem('user'))
         const { data } = await setTasks('message', task, token)
         console.log(data);
+        dispatch(changeTaskEdit(''))
       } else {
         alert('Preencha todos os campos e salve a tarefa')
         return

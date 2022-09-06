@@ -22,7 +22,7 @@ export const TasksHistoryCardWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     width: 80%;
-    height: 350px;
+    /* height: 350px; */
     background-color: #e3ece8;
     border: 2px solid #21bc81;
     border-radius: 10px;
