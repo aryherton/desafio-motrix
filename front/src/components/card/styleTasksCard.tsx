@@ -17,7 +17,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 30%;
+          height: 10%;
 
           margin: 10px 0;
 
@@ -52,7 +52,7 @@ export const CardWrapper = styled.div`
               display: flex;
               flex-direction: column;
 
-              width: 70%;
+              width: 65%;
               height: 100%;
 
               border-right: 2px solid #48ed8d;
@@ -80,7 +80,7 @@ export const CardWrapper = styled.div`
 
                   p {
                     width: 90%;
-                    height: 45%;
+                    height: 15%;
                     font-size: 12px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -96,7 +96,7 @@ export const CardWrapper = styled.div`
               align-items: left;
               justify-content: space-around;
 
-              width: 10%;
+              width: 25%;
               height: 80%;
 
               button {
@@ -209,7 +209,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 30%;
+          height: 15%;
 
           margin: 10px 0;
 
@@ -272,7 +272,7 @@ export const CardWrapper = styled.div`
 
                   p {
                     width: 90%;
-                    height: 50%;
+                    height: 30%;
                     font-size: 12px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -322,7 +322,7 @@ export const CardWrapper = styled.div`
 
             color: #4d2103;
 
-            width: 80%;
+            width: 90%;
             height: 15%;
 
             .selectStatus {
