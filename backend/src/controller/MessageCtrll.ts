@@ -58,6 +58,8 @@ export default class MessageCtrll {
     try {
       const { authorization } = req.headers;
       const message: IMessage = req.body;
+      console.log(message);
+      
 
       if (authorization) {
         Token.validToken(authorization) as JwtPayload;
