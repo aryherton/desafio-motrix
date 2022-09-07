@@ -5,13 +5,10 @@ import Link from 'next/link';
 import Header from '../components/header/Header';
 import { StyledDetailsTask } from '../styles/pagesStyle/styledDetailsTask'
 import { convertDateTime } from '../utils/changeDate'
+import FormatTxt from '../components/formatTxt/FormatTxt';
 
 function DetailsTask() {
   const { detailsTask } = useSelector((state: any) => state.tasks)
-
-  const parser = new DOMParser()
-  const html = parser.parseFromString(detailsTask.description, 'text/html')
-  const text = html.body.textContent || ''
 
   return (
     <StyledDetailsTask>
@@ -38,9 +35,7 @@ function DetailsTask() {
           <div id="title">
             <h1>{detailsTask.title}</h1>
           </div>
-          <div id="txt">
-            <p>{text}</p>
-          </div>
+          <FormatTxt text={detailsTask.description}/>
         </section>
       </main>
     </StyledDetailsTask>
