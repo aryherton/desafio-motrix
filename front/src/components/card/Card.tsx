@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
 
 import Editor from '../formTasks/EditorTxt'
-import { changeHistory, changeTaskEdit, changeTask } from '../../redux/slice/tasksSlice'
+import {
+  changeHistory,
+  changeTaskEdit,
+  changeTask,
+  changeDetailsTask } from '../../redux/slice/tasksSlice'
 import { convertDateTime } from '../../utils/changeDate'
 import { arrStatus } from '../../utils/arrStatus'
 import { arrPriority } from '../../utils/arrPriority'
@@ -26,8 +31,7 @@ function Card({
   status,
   updatedAt,
 }): JSX.Element {
-  console.log(status);
-
+  const router = useRouter()
   const dispatch = useDispatch()
   const { allTasks, taskEdit } = useSelector((state: any) => state.tasks)
   const [titleEdit, setTitleEdit] = useState(taskEdit.title)
@@ -118,6 +122,18 @@ function Card({
       default:
         return <Image src={IMGPendent} alt="checked" width={35} height={35} />
     }
+  }
+
+  const hendleTaskDetails = () => {
+    dispatch(changeDetailsTask({
+      id,
+      title,
+      description,
+      priority,
+      status,
+      updatedAt
+    }))
+    router.push(`/detailsTask`)
   }
 
   return (
@@ -226,9 +242,15 @@ function Card({
                 <div className="titleTask">
                   <p>{title}</p>
                 </div>
-                <div className="txtTask">
-                  <p>{text}</p>
-                </div>
+                <button
+                  type="button"
+                  className="btn_txt_details"
+                  onClick={ hendleTaskDetails }
+                >
+                    <div className="txtTask">
+                      <p>{text}</p>
+                    </div>
+                  </button>
               </div>
               <div className="menuTask">
                 <button

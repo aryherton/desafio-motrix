@@ -10,6 +10,7 @@ export const slice = createSlice({
     historyTasks: '',
     task: '',
     taskEdit: '',
+    detailsTask: '',
   },
 
   reducers: {
@@ -28,6 +29,9 @@ export const slice = createSlice({
     changeTaskEdit: (state, { payload }) => {
       return { ...state, taskEdit: payload };
     },
+    changeDetailsTask: (state, { payload }) => {
+      return { ...state, detailsTask: payload };
+    }
   },
 })
 
@@ -37,6 +41,7 @@ export const {
   changeHistory,
   changeTask,
   changeTaskEdit,
+  changeDetailsTask,
 } = slice.actions;
 
 export const selectAllTasks = (state: { allTasks: ITasks[]; }) => state.allTasks;
@@ -44,5 +49,6 @@ export const selectFilterTasks = (state: { filterTasks: ITasks[]; }) => state.fi
 export const selectHistory = (state: { historyTasks: ITasks; }) => state.historyTasks;
 export const selectTask = (state: { task: ITasks; }) => state.task;
 export const selectTaskEdit = (state: { taskEdit: ITasks; }) => state.taskEdit;
+export const selectDetailsTask = (state: { detailsTask: ITasks; }) => state.detailsTask;
 
 export default slice.reducer;
