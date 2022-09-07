@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledDetailsTask = styled.main`
+export const StyledDetailsTask = styled.div`
 @media screen {
   @media (
     min-width: 50px
