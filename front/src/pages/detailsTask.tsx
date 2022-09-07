@@ -5,10 +5,16 @@ import Link from 'next/link';
 import Header from '../components/header/Header';
 import { StyledDetailsTask } from '../styles/pagesStyle/styledDetailsTask'
 import { convertDateTime } from '../utils/changeDate'
-import FormatTxt from '../components/formatTxt/FormatTxt';
 
 function DetailsTask() {
   const { detailsTask } = useSelector((state: any) => state.tasks)
+  let text = ''
+
+  if (detailsTask.updatedAt) {
+    const parser = new DOMParser()
+    const html = parser.parseFromString(detailsTask.description, 'text/html')
+    text = html.body.textContent || ''
+  }
 
   return (
     <StyledDetailsTask>
@@ -28,14 +34,16 @@ function DetailsTask() {
           </span>
           <span id="date">
             <p>Atualizada</p>
-            <p id="pDate">{convertDateTime(detailsTask.updatedAt)}</p>
+            <p id="pDate">{detailsTask.updatedAt && convertDateTime(detailsTask.updatedAt)}</p>
           </span>
         </section>
         <section id="center_title_txt">
           <div id="title">
             <h1>{detailsTask.title}</h1>
           </div>
-          <FormatTxt text={detailsTask.description}/>
+          <div id="txt">
+            <p>{text}</p>
+          </div>
         </section>
       </main>
     </StyledDetailsTask>
