@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Image from 'next/image'
-import { nanoid } from 'nanoid'
 
 import Editor from '../formTasks/EditorTxt'
 import { changeHistory, changeTaskEdit, changeTask } from '../../redux/slice/tasksSlice'
@@ -13,7 +12,10 @@ import { CardWrapper } from './styleTasksCard'
 import { CardEditWrapper } from './styleCardEdit'
 import { putUpdateTask } from '../../utils/api'
 import CorrectImg from '../../assets/images/correct.png'
+import InProgress from '../../assets/images/work-in-progress.png'
+import IMGPendent from '../../assets/images/pendente.png'
 import DeleteImg from '../../assets/images/delete.png'
+import Router from 'next/router'
 
 function Card({
   key,
@@ -24,6 +26,8 @@ function Card({
   status,
   updatedAt,
 }): JSX.Element {
+  console.log(status);
+
   const dispatch = useDispatch()
   const { allTasks, taskEdit } = useSelector((state: any) => state.tasks)
   const [titleEdit, setTitleEdit] = useState(taskEdit.title)
@@ -34,23 +38,43 @@ function Card({
   const html = parser.parseFromString(description, 'text/html')
   const text = html.body.textContent || ''
 
-  const handleLocalState = (target: any) => {
+  const handleLocalState = async (target: any) => {
     if (arrPriority.includes(target.value)) {
+      dispatch(changeTaskEdit({ ...taskEdit, priority: target.value }))
       setPriorityEdit(target.value)
     } else if (arrStatus.includes(target.value)) {
+      dispatch(changeTaskEdit({ ...taskEdit, status: target.value }))
       setStatusEdit(target.value)
     } else {
       setTitleEdit(target.value)
     }
+
+    if (!taskEdit) {
+      const updateTask = {
+        title: title,
+        description: description,
+        status: target.value,
+        priority: priority,
+        _id: id
+      }
+      console.log(updateTask);
+
+      const { token } = JSON.parse(localStorage.getItem('user'))
+      const upMessage = await putUpdateTask('message', updateTask, token)
+      console.log(upMessage);
+      Router.reload()
+    }
   }
 
   const setEditNewTask = async () => {
+
     const newTask = {
       ...taskEdit,
       title: titleEdit,
       status: statusEdit,
       priority: priorityEdit,
     }
+
     const { token } = JSON.parse(localStorage.getItem('user'))
     const upMessage = await putUpdateTask('message', newTask, token)
     console.log(upMessage);
@@ -85,6 +109,17 @@ function Card({
     }
   }
 
+  const handleImgStatus = () => {
+    switch (status) {
+      case 'Concluído':
+        return <Image src={CorrectImg} alt="checked" width={25} height={25} />
+      case 'Em andamento':
+        return <Image src={InProgress} alt="checked" width={55} height={55} />
+      default:
+        return <Image src={IMGPendent} alt="checked" width={35} height={35} />
+    }
+  }
+
   return (
       <>
         {taskEdit._id === id ? (
@@ -108,15 +143,14 @@ function Card({
                   <select
                     className="selectStatus"
                     name="selectStatus"
-                    id={`status_${status}`}
                   >
                     <optgroup>
                       {
                         arrStatus.map((stat: string) => {
                           return (
                             <option
-                              value={ statusEdit ? statusEdit : stat }
-                              selected={statusEdit ? false : stat === status}
+                              value={ stat }
+                              selected={ stat === taskEdit.status }
                               onClick={({ target }) => handleLocalState(target)}
                             >
                               {stat}
@@ -132,14 +166,14 @@ function Card({
                   <select
                     className="selectPriority"
                     name="selectPriority"
-                    id={`priority_${priority}`}>
+                  >
                     <optgroup>
                       {
                         arrPriority.map((prt: string) => {
                           return (
                             <option
-                              value={ priorityEdit ? priorityEdit : prt }
-                              selected={priorityEdit ? false : prt === priority}
+                              value={ prt }
+                              selected={ prt === taskEdit.priority }
                               onClick={({target}) => handleLocalState(target)}
                             >
                               {prt}
@@ -186,7 +220,7 @@ function Card({
           <CardWrapper key={id + key}>
             <div className="main_info">
               <div className="img_status">
-                <Image src={CorrectImg} alt="checked" width={25} height={25} />
+                { status && handleImgStatus() }
               </div>
               <div className="titleAndTxt">
                 <div className="titleTask">
@@ -201,7 +235,13 @@ function Card({
                   type="button"
                   id={`${key}_button_edit`}
                   onClick={() => hendleEdit(
-                    { title, description, status, priority, _id: id }
+                    {
+                      title,
+                      description,
+                      status,
+                      priority,
+                      _id: id
+                    }
                   )}
                 >
                   Editar
@@ -225,8 +265,27 @@ function Card({
             </div>
             <div className="datas_info">
               <span className="statusTask">
-                <span className="txtStatus">Status: </span>
-                <span className="valueStatus">{status}</span>
+                <select
+                  className="selectStatus"
+                  name="selectStatus"
+                  id={`status_${status}`}
+                >
+                  <optgroup>
+                    {
+                      arrStatus.map((stat: string) => {
+                        return (
+                          <option
+                            value={stat}
+                            selected={statusEdit ? false : stat === status}
+                            onClick={({ target }) => handleLocalState(target)}
+                          >
+                            {stat}
+                          </option>
+                        )
+                      })
+                    }
+                  </optgroup>
+                </select>
               </span>
               <span className="priorityTask">
                 <p className="txt_priority">Prioridade: </p>
