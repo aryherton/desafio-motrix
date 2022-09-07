@@ -12,7 +12,7 @@ function DetailsTask() {
   const parser = new DOMParser()
   const html = parser.parseFromString(detailsTask.description, 'text/html')
   const text = html.body.textContent || ''
-\
+
   return (
     <StyledDetailsTask>
       <Header />
