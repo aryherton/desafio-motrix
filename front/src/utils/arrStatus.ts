@@ -1,1 +1,1 @@
-export const arrStatus = ['Pendente', 'Em andamento', 'Completo']
+export const arrStatus = ['Pendente', 'Em andamento', 'Concluído'];

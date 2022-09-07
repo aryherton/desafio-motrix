@@ -49,6 +49,7 @@ export const LoginWrapper = styled.header`
     img {
       width: 60px;
       height: 60px;
+      cursor: pointer;
     }
   }
 `

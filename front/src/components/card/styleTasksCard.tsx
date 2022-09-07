@@ -128,25 +128,23 @@ export const CardWrapper = styled.div`
         width: 80%;
         height: 15%;
 
-        .statusTask {
-              display: flex;
-              flex-direction: column;
-              width: 20%;
-              height: 70%;
+        .selectStatus {
+          width: 100%;
+          height: 90%;
 
-              .txtStatus {
-                font-size: 12px;
-                text-align: center;
-                width: 100%;
-              }
+          color: #04244a;
+          font-weight: 500;
+          text-align: center;
 
-              .valueStatus {
-                font-size: 12px;
-                font-weight: 600;
-                width: 100%;
-                text-align: center;
-              }
-            }
+          background-color: #FBB282;
+          border: none;
+          font-size: 12px;
+          border-radius: 10px;
+
+          input {
+            line-height: 50px;
+          }
+        }
 
         .priorityTask {
           width: 25%;
@@ -309,25 +307,23 @@ export const CardWrapper = styled.div`
           width: 80%;
           height: 15%;
 
-          .statusTask {
-              display: flex;
-              flex-direction: column;
-              width: 20%;
-              height: 70%;
+          .selectStatus {
+            width: 100%;
+            height: 90%;
 
-              .txtStatus {
-                font-size: 12px;
-                text-align: center;
-                width: 100%;
-              }
+            color: #04244a;
+            font-weight: 500;
+            text-align: center;
 
-              .valueStatus {
-                font-size: 12px;
-                font-weight: 600;
-                width: 100%;
-                text-align: center;
-              }
+            background-color: #FBB282;
+            border: none;
+            font-size: 12px;
+            border-radius: 10px;
+
+            input {
+              line-height: 50px;
             }
+          }
 
           .priorityTask {
             width: 25%;
@@ -489,23 +485,21 @@ export const CardWrapper = styled.div`
             width: 80%;
             height: 15%;
 
-            .statusTask {
-              display: flex;
-              flex-direction: column;
-              width: 20%;
-              height: 70%;
+            .selectStatus {
+              width: 100%;
+              height: 90%;
 
-              .txtStatus {
-                font-size: 12px;
-                text-align: center;
-                width: 100%;
-              }
+              color: #04244a;
+              font-weight: 500;
+              text-align: center;
 
-              .valueStatus {
-                font-size: 12px;
-                font-weight: 600;
-                width: 100%;
-                text-align: center;
+              background-color: #FBB282;
+              border: none;
+              font-size: 12px;
+              border-radius: 10px;
+
+              input {
+                line-height: 50px;
               }
             }
 
@@ -667,23 +661,21 @@ export const CardWrapper = styled.div`
             width: 80%;
             height: 15%;
 
-            .statusTask {
-              display: flex;
-              flex-direction: column;
-              width: 20%;
-              height: 70%;
+            .selectStatus {
+              width: 100%;
+              height: 90%;
 
-              .txtStatus {
-                font-size: 12px;
-                text-align: center;
-                width: 100%;
-              }
+              color: #04244a;
+              font-weight: 500;
+              text-align: center;
 
-              .valueStatus {
-                font-size: 12px;
-                font-weight: 600;
-                width: 100%;
-                text-align: center;
+              background-color: #FBB282;
+              border: none;
+              font-size: 12px;
+              border-radius: 10px;
+
+              input {
+                line-height: 50px;
               }
             }
 

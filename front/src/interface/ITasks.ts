@@ -15,5 +15,5 @@ export interface ITasks {
   ],
   createdAt?: Date,
   updatedAt?: Date,
-  __v: Number,
+  __v?: Number,
 }
