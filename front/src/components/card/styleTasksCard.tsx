@@ -17,7 +17,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 10%;
+          height: 20%;
 
           margin: 10px 0;
 
@@ -209,7 +209,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 15%;
+          height: 40%;
 
           margin: 10px 0;
 
@@ -395,7 +395,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 30%;
+          height: 80%;
 
           margin: 10px 0;
 
@@ -458,7 +458,7 @@ export const CardWrapper = styled.div`
 
                   p {
                     width: 90%;
-                    height: 60%;
+                    height: 50%;
                     font-size: 12px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -578,7 +578,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 30%;
+          height: 80%;
 
           margin: 10px 0;
 

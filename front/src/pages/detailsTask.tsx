@@ -1,12 +1,14 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux'
+import router from 'next/router';
 
 import Header from '../components/header/Header';
+import { changeHistory } from '../redux/slice/tasksSlice'
 import { StyledDetailsTask } from '../styles/pagesStyle/styledDetailsTask'
 import { convertDateTime } from '../utils/changeDate'
 
 function DetailsTask() {
+  const dispatch = useDispatch()
   const { detailsTask } = useSelector((state: any) => state.tasks)
   let text = ''
 
@@ -19,9 +21,16 @@ function DetailsTask() {
   return (
     <StyledDetailsTask>
       <Header />
-      <Link href="home">
-        <button type="button" id="link_task_list">Listar tarefas</button>
-      </Link>
+      <button
+        type="button"
+        id="link_task_list"
+        onClick={() => {
+          dispatch(changeHistory(''))
+          router.back()
+        }}
+      >
+        Listar tarefas
+      </button>
       <main id="details_task">
         <section id="menu_info_left">
           <span id="status">

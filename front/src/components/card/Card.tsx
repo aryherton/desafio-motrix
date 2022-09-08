@@ -133,6 +133,7 @@ function Card({
       status,
       updatedAt
     }))
+    dispatch(changeTaskEdit(''))
     router.push(`/detailsTask`)
   }
 
