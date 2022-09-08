@@ -1,6 +1,17 @@
 import styled from 'styled-components'
 
 export const FormLoginWrapper = styled.div`
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    label {
+      align-self: flex-start;
+    }
+  }
+
   .form-control {
     height: 40px;
     border-radius: 5px;
