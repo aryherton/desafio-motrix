@@ -9,7 +9,6 @@ import { ITasks } from '../../interface/ITasks'
 import { changeFilterTasks } from '../../redux/slice/tasksSlice'
 
 function TasksCard(): JSX.Element {
-  const [itens, setItens] = useState<ITasks[]>([])
   const [itensPerPage, setItensPerPage] = useState(3)
   const [currentPage, setCurrentPage] = useState(0)
   const dispatch = useDispatch()
@@ -20,7 +19,6 @@ function TasksCard(): JSX.Element {
   const pages = Math.ceil(filterTasks.length / itensPerPage)
   const offset = currentPage * itensPerPage
   const currentPageData = filterTasks.slice(offset, offset + itensPerPage)
-
 
   const handleArrTasks = () => {
     if (searchPriority) {
