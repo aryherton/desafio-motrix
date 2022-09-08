@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 
+const checkHistory = localStorage.getItem('history')
+console.log(checkHistory);
+
 export const TasksWrapper = styled.section`
 display: flex;
 flex-direction: column;
@@ -17,7 +20,7 @@ export const CardWrapper = styled.div`
           align-items: center;
 
           width: 90%;
-          height: 20%;
+          height: 10%;
 
           margin: 10px 0;
 
