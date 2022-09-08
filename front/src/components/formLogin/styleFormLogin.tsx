@@ -13,6 +13,7 @@ export const FormLoginWrapper = styled.div`
   }
 
   .form-control {
+    width: 100%;
     height: 40px;
     border-radius: 5px;
     border: none;
