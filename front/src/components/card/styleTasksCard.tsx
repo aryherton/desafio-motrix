@@ -1,13 +1,34 @@
 import styled from 'styled-components'
 
-const checkHistory = localStorage.getItem('history')
-console.log(checkHistory);
-
 export const TasksWrapper = styled.section`
 display: flex;
 flex-direction: column;
 align-items: center;
 width: 100%;
+
+#buttonPage {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bolder;
+  background: #8925AD;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px #000;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#buttonPage:hover {
+  box-shadow: 2px 2px 10px #000;
+}
+
+#buttonPage:active {
+  box-shadow: 1px 1px 5px #000;
+  font-size: 14px;
+}
 `
 export const CardWrapper = styled.div`
 /* >>>>>>> @media min-width: 320px max-width: 480px <<<<<<< */
