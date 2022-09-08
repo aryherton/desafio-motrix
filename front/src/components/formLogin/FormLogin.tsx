@@ -8,6 +8,7 @@ import {
   registerUser,
   getDatas,
 } from '../../utils/api';
+import { FormLoginWrapper } from './styleFormLogin';
 
 function FormLogin(): JSX.Element {
   const router = useRouter();
@@ -71,7 +72,7 @@ function FormLogin(): JSX.Element {
   }
 
   return (
-    <div>
+    <FormLoginWrapper>
       <form>
         {typeForm === 'register'
           && (<div className="form-group">
@@ -125,7 +126,7 @@ function FormLogin(): JSX.Element {
         </div>
       </form>
       {error && <p>{'Usuário ou senha incorreto'}</p>}
-    </div>
+    </FormLoginWrapper>
   )
 }
 
