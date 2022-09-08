@@ -6,7 +6,6 @@ export const TasksHistoryCardWrapper = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100%;
 
   #pHistory {
     background-color: #21bc81;
