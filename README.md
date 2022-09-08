@@ -65,13 +65,7 @@ Todos os campos de formulário devem estar com validações adequadas.
 
   Depois digite:
 
-
-  <code>docker run --name motrixMongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=root mongo</code>
-
-  Logo em seguida digite:
-
-
-  <code>docker run --name motrixMongo -p 27017:27017 -d  mongo</code>
+<code>docker run --name motrixMongo -p 27017:27017 -d  mongo</code>
 
 
 </details>
